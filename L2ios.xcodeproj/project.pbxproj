@@ -11,10 +11,11 @@
 		522422FD21BD404400513868 /* L2iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522422FC21BD404400513868 /* L2iosUITests.swift */; };
 		5224231621BD4B8B00513868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5224231121BD4B8B00513868 /* Assets.xcassets */; };
 		5224231721BD4B8B00513868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5224231221BD4B8B00513868 /* LaunchScreen.storyboard */; };
-		5224231F21BD4CF700513868 /* AMIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224231C21BD4CF600513868 /* AMIAppDelegate.m */; };
-		5224232021BD4CF700513868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224231D21BD4CF700513868 /* main.m */; };
 		5224232921BD520300513868 /* AMIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224232721BD520300513868 /* AMIMainViewController.m */; };
 		5224232A21BD520300513868 /* AMIMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5224232821BD520300513868 /* AMIMainViewController.xib */; };
+		5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224233321BD56D800513868 /* AMIAppDelegate.m */; };
+		5224233621BD56D800513868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224233421BD56D800513868 /* main.m */; };
+		5224233A21BD641100513868 /* amb_full_scr.png in Resources */ = {isa = PBXBuildFile; fileRef = 5224233921BD641100513868 /* amb_full_scr.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,13 +46,14 @@
 		5224231121BD4B8B00513868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5224231321BD4B8B00513868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5224231921BD4BA500513868 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5224231B21BD4CF600513868 /* L2ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "L2ios-Bridging-Header.h"; sourceTree = "<group>"; };
-		5224231C21BD4CF600513868 /* AMIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMIAppDelegate.m; sourceTree = "<group>"; };
-		5224231D21BD4CF700513868 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5224231E21BD4CF700513868 /* AMIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMIAppDelegate.h; sourceTree = "<group>"; };
 		5224232621BD520300513868 /* AMIMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIMainViewController.h; sourceTree = "<group>"; };
 		5224232721BD520300513868 /* AMIMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIMainViewController.m; sourceTree = "<group>"; };
 		5224232821BD520300513868 /* AMIMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIMainViewController.xib; sourceTree = "<group>"; };
+		5224233221BD56D800513868 /* AMIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMIAppDelegate.h; sourceTree = "<group>"; };
+		5224233321BD56D800513868 /* AMIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMIAppDelegate.m; sourceTree = "<group>"; };
+		5224233421BD56D800513868 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5224233721BD56F600513868 /* L2ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "L2ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		5224233921BD641100513868 /* amb_full_scr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amb_full_scr.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,14 +104,11 @@
 		522422DB21BD404000513868 /* L2ios */ = {
 			isa = PBXGroup;
 			children = (
+				5224233121BD56D800513868 /* starter */,
 				5224231021BD4B8B00513868 /* res */,
-				5224231E21BD4CF700513868 /* AMIAppDelegate.h */,
-				5224231C21BD4CF600513868 /* AMIAppDelegate.m */,
 				5224232621BD520300513868 /* AMIMainViewController.h */,
 				5224232721BD520300513868 /* AMIMainViewController.m */,
 				5224232821BD520300513868 /* AMIMainViewController.xib */,
-				5224231B21BD4CF600513868 /* L2ios-Bridging-Header.h */,
-				5224231D21BD4CF700513868 /* main.m */,
 			);
 			path = L2ios;
 			sourceTree = "<group>";
@@ -135,11 +134,31 @@
 		5224231021BD4B8B00513868 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				5224233821BD641100513868 /* img */,
 				5224231121BD4B8B00513868 /* Assets.xcassets */,
 				5224231221BD4B8B00513868 /* LaunchScreen.storyboard */,
 				5224231921BD4BA500513868 /* Info.plist */,
 			);
 			path = res;
+			sourceTree = "<group>";
+		};
+		5224233121BD56D800513868 /* starter */ = {
+			isa = PBXGroup;
+			children = (
+				5224233721BD56F600513868 /* L2ios-Bridging-Header.h */,
+				5224233221BD56D800513868 /* AMIAppDelegate.h */,
+				5224233321BD56D800513868 /* AMIAppDelegate.m */,
+				5224233421BD56D800513868 /* main.m */,
+			);
+			path = starter;
+			sourceTree = "<group>";
+		};
+		5224233821BD641100513868 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				5224233921BD641100513868 /* amb_full_scr.png */,
+			);
+			path = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5224233A21BD641100513868 /* amb_full_scr.png in Resources */,
 				5224231621BD4B8B00513868 /* Assets.xcassets in Resources */,
 				5224231721BD4B8B00513868 /* LaunchScreen.storyboard in Resources */,
 				5224232A21BD520300513868 /* AMIMainViewController.xib in Resources */,
@@ -274,8 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5224231F21BD4CF700513868 /* AMIAppDelegate.m in Sources */,
-				5224232021BD4CF700513868 /* main.m in Sources */,
+				5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */,
+				5224233621BD56D800513868 /* main.m in Sources */,
 				5224232921BD520300513868 /* AMIMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
