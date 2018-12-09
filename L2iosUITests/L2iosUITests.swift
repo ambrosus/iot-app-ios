@@ -1,9 +1,6 @@
 //
-//  L2iosUITests.swift
-//  L2iosUITests
-//
-//  Created by serj e on 12/9/18.
-//  Copyright © 2018 Ambrosus. All rights reserved.
+//  Created by Sergei E. on 12/9/18.
+//  (c) 2018 Ambrosus. All rights reserved.
 //
 
 import XCTest
