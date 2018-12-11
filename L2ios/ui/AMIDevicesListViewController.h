@@ -1,5 +1,5 @@
 //
-//  Created by Sergei E. on 12/9/18.
+//  Created by Sergei E. on 12/10/18.
 //  (c) 2018 Ambrosus. All rights reserved.
 //  
 
@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AMIMainViewController : UIViewController
+@interface AMIDevicesListViewController : UIViewController
 
 @end
 

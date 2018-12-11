@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FE835401EE5DC522CE4BE71 /* Pods_L2iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F8F373D24043C79B8A4E34 /* Pods_L2iosUITests.framework */; };
 		522422F221BD404400513868 /* L2iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522422F121BD404400513868 /* L2iosTests.swift */; };
 		522422FD21BD404400513868 /* L2iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522422FC21BD404400513868 /* L2iosUITests.swift */; };
 		5224231621BD4B8B00513868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5224231121BD4B8B00513868 /* Assets.xcassets */; };
 		5224231721BD4B8B00513868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5224231221BD4B8B00513868 /* LaunchScreen.storyboard */; };
-		5224232921BD520300513868 /* AMIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224232721BD520300513868 /* AMIMainViewController.m */; };
-		5224232A21BD520300513868 /* AMIMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5224232821BD520300513868 /* AMIMainViewController.xib */; };
 		5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224233321BD56D800513868 /* AMIAppDelegate.m */; };
 		5224233621BD56D800513868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224233421BD56D800513868 /* main.m */; };
 		5224233A21BD641100513868 /* amb_full_scr.png in Resources */ = {isa = PBXBuildFile; fileRef = 5224233921BD641100513868 /* amb_full_scr.png */; };
+		522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DE23521BDC2D800779AD6 /* AMIMainViewController.m */; };
+		528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B121BFF15F0073842E /* AMIDataCentral.swift */; };
+		5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.m */; };
+		5295511621BDC7FD00F75ED2 /* AMIDevicesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295511421BDC7FD00F75ED2 /* AMIDevicesListViewController.xib */; };
+		5295511A21BDC80D00F75ED2 /* AMIInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */; };
+		5295511B21BDC80D00F75ED2 /* AMIInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */; };
+		5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511E21BDCBC000F75ED2 /* UIColor+AMI.m */; };
+		52ABCE6B21BF1E9000B0E1BD /* AMIStyleConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.m */; };
+		52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */; };
+		52ABCE7621BFC40600B0E1BD /* AMIDeviceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */; };
+		52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */; };
+		52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */; };
+		6CF72EDBCAE1CF0F300762ED /* Pods_L2ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4341EF523A7BF06266A06F2 /* Pods_L2ios.framework */; };
+		A9424FFD9DF384D5CA4E2300 /* Pods_L2iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193602CA511F730F0DE857AA /* Pods_L2iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		193602CA511F730F0DE857AA /* Pods_L2iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L2iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E3BB4BF6CBCEA7DF538D45D /* Pods-L2iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L2iosTests/Pods-L2iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4FDF07F54E9B7F86DD833D12 /* Pods-L2iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-L2iosTests/Pods-L2iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		522422D921BD404000513868 /* L2ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = L2ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522422ED21BD404400513868 /* L2iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = L2iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		522422F121BD404400513868 /* L2iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L2iosTests.swift; sourceTree = "<group>"; };
@@ -46,14 +62,34 @@
 		5224231121BD4B8B00513868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5224231321BD4B8B00513868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5224231921BD4BA500513868 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5224232621BD520300513868 /* AMIMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIMainViewController.h; sourceTree = "<group>"; };
-		5224232721BD520300513868 /* AMIMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIMainViewController.m; sourceTree = "<group>"; };
-		5224232821BD520300513868 /* AMIMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIMainViewController.xib; sourceTree = "<group>"; };
 		5224233221BD56D800513868 /* AMIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMIAppDelegate.h; sourceTree = "<group>"; };
 		5224233321BD56D800513868 /* AMIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMIAppDelegate.m; sourceTree = "<group>"; };
 		5224233421BD56D800513868 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5224233721BD56F600513868 /* L2ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "L2ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		5224233921BD641100513868 /* amb_full_scr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amb_full_scr.png; sourceTree = "<group>"; };
+		522DE23421BDC2D800779AD6 /* AMIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMIMainViewController.h; sourceTree = "<group>"; };
+		522DE23521BDC2D800779AD6 /* AMIMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMIMainViewController.m; sourceTree = "<group>"; };
+		528459B121BFF15F0073842E /* AMIDataCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDataCentral.swift; sourceTree = "<group>"; };
+		5295511221BDC7FD00F75ED2 /* AMIDevicesListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIDevicesListViewController.h; sourceTree = "<group>"; };
+		5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIDevicesListViewController.m; sourceTree = "<group>"; };
+		5295511421BDC7FD00F75ED2 /* AMIDevicesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIDevicesListViewController.xib; sourceTree = "<group>"; };
+		5295511721BDC80D00F75ED2 /* AMIInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIInfoViewController.h; sourceTree = "<group>"; };
+		5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIInfoViewController.m; sourceTree = "<group>"; };
+		5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIInfoViewController.xib; sourceTree = "<group>"; };
+		5295511D21BDCBC000F75ED2 /* UIColor+AMI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AMI.h"; sourceTree = "<group>"; };
+		5295511E21BDCBC000F75ED2 /* UIColor+AMI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AMI.m"; sourceTree = "<group>"; };
+		52ABCE6921BF1E9000B0E1BD /* AMIStyleConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIStyleConstants.h; sourceTree = "<group>"; };
+		52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIStyleConstants.m; sourceTree = "<group>"; };
+		52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMIDBStarter.swift; sourceTree = "<group>"; };
+		52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDeviceEntity.swift; sourceTree = "<group>"; };
+		52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-info-icon@2x.png"; sourceTree = "<group>"; };
+		52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-tab-icon@2x.png"; sourceTree = "<group>"; };
+		7963B6F040392E4B17DE318C /* Pods-L2ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L2ios/Pods-L2ios.debug.xcconfig"; sourceTree = "<group>"; };
+		B2541F23F91A58A0885F8041 /* Pods-L2iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L2iosUITests/Pods-L2iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B4341EF523A7BF06266A06F2 /* Pods_L2ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L2ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C49DAE40EB87236EDD66A5BF /* Pods-L2ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-L2ios/Pods-L2ios.release.xcconfig"; sourceTree = "<group>"; };
+		EE0B80E3BACB9640224BEA20 /* Pods-L2iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-L2iosUITests/Pods-L2iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F9F8F373D24043C79B8A4E34 /* Pods_L2iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L2iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF72EDBCAE1CF0F300762ED /* Pods_L2ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9424FFD9DF384D5CA4E2300 /* Pods_L2iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE835401EE5DC522CE4BE71 /* Pods_L2iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +127,8 @@
 				522422F021BD404400513868 /* L2iosTests */,
 				522422FB21BD404400513868 /* L2iosUITests */,
 				522422DA21BD404000513868 /* Products */,
+				9DFDBBF010AD93C10E295547 /* Pods */,
+				ABA95A7AE36F6F31E74BAE5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,11 +145,11 @@
 		522422DB21BD404000513868 /* L2ios */ = {
 			isa = PBXGroup;
 			children = (
+				52ABCE7121BFAE9A00B0E1BD /* db */,
+				522DE23121BDC2D800779AD6 /* ui */,
 				5224233121BD56D800513868 /* starter */,
+				5295511C21BDCBC000F75ED2 /* util */,
 				5224231021BD4B8B00513868 /* res */,
-				5224232621BD520300513868 /* AMIMainViewController.h */,
-				5224232721BD520300513868 /* AMIMainViewController.m */,
-				5224232821BD520300513868 /* AMIMainViewController.xib */,
 			);
 			path = L2ios;
 			sourceTree = "<group>";
@@ -156,9 +197,70 @@
 		5224233821BD641100513868 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */,
+				52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */,
 				5224233921BD641100513868 /* amb_full_scr.png */,
 			);
 			path = img;
+			sourceTree = "<group>";
+		};
+		522DE23121BDC2D800779AD6 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				522DE23421BDC2D800779AD6 /* AMIMainViewController.h */,
+				522DE23521BDC2D800779AD6 /* AMIMainViewController.m */,
+				5295511221BDC7FD00F75ED2 /* AMIDevicesListViewController.h */,
+				5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.m */,
+				5295511421BDC7FD00F75ED2 /* AMIDevicesListViewController.xib */,
+				5295511721BDC80D00F75ED2 /* AMIInfoViewController.h */,
+				5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */,
+				5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		5295511C21BDCBC000F75ED2 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				5295511D21BDCBC000F75ED2 /* UIColor+AMI.h */,
+				5295511E21BDCBC000F75ED2 /* UIColor+AMI.m */,
+				52ABCE6921BF1E9000B0E1BD /* AMIStyleConstants.h */,
+				52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		52ABCE7121BFAE9A00B0E1BD /* db */ = {
+			isa = PBXGroup;
+			children = (
+				52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */,
+				528459B121BFF15F0073842E /* AMIDataCentral.swift */,
+				52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		9DFDBBF010AD93C10E295547 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7963B6F040392E4B17DE318C /* Pods-L2ios.debug.xcconfig */,
+				C49DAE40EB87236EDD66A5BF /* Pods-L2ios.release.xcconfig */,
+				1E3BB4BF6CBCEA7DF538D45D /* Pods-L2iosTests.debug.xcconfig */,
+				4FDF07F54E9B7F86DD833D12 /* Pods-L2iosTests.release.xcconfig */,
+				B2541F23F91A58A0885F8041 /* Pods-L2iosUITests.debug.xcconfig */,
+				EE0B80E3BACB9640224BEA20 /* Pods-L2iosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ABA95A7AE36F6F31E74BAE5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4341EF523A7BF06266A06F2 /* Pods_L2ios.framework */,
+				193602CA511F730F0DE857AA /* Pods_L2iosTests.framework */,
+				F9F8F373D24043C79B8A4E34 /* Pods_L2iosUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +270,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5224230121BD404400513868 /* Build configuration list for PBXNativeTarget "L2ios" */;
 			buildPhases = (
+				4898810AAEC463E0E879DF7B /* [CP] Check Pods Manifest.lock */,
 				522422D521BD404000513868 /* Sources */,
 				522422D621BD404000513868 /* Frameworks */,
 				522422D721BD404000513868 /* Resources */,
+				81C8E4279183941845B0D010 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +289,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5224230421BD404400513868 /* Build configuration list for PBXNativeTarget "L2iosTests" */;
 			buildPhases = (
+				D4A2BDDE6DB7C706E6007856 /* [CP] Check Pods Manifest.lock */,
 				522422E921BD404400513868 /* Sources */,
 				522422EA21BD404400513868 /* Frameworks */,
 				522422EB21BD404400513868 /* Resources */,
@@ -203,6 +308,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5224230721BD404400513868 /* Build configuration list for PBXNativeTarget "L2iosUITests" */;
 			buildPhases = (
+				ACC04B551B4B04A3CDC86719 /* [CP] Check Pods Manifest.lock */,
 				522422F421BD404400513868 /* Sources */,
 				522422F521BD404400513868 /* Frameworks */,
 				522422F621BD404400513868 /* Resources */,
@@ -266,10 +372,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */,
+				5295511B21BDC80D00F75ED2 /* AMIInfoViewController.xib in Resources */,
+				5295511621BDC7FD00F75ED2 /* AMIDevicesListViewController.xib in Resources */,
 				5224233A21BD641100513868 /* amb_full_scr.png in Resources */,
 				5224231621BD4B8B00513868 /* Assets.xcassets in Resources */,
 				5224231721BD4B8B00513868 /* LaunchScreen.storyboard in Resources */,
-				5224232A21BD520300513868 /* AMIMainViewController.xib in Resources */,
+				52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,14 +398,96 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4898810AAEC463E0E879DF7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-L2ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81C8E4279183941845B0D010 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-L2ios/Pods-L2ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-L2ios/Pods-L2ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACC04B551B4B04A3CDC86719 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-L2iosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4A2BDDE6DB7C706E6007856 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-L2iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		522422D521BD404000513868 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */,
+				5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */,
+				5295511A21BDC80D00F75ED2 /* AMIInfoViewController.m in Sources */,
+				528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */,
+				522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */,
+				52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */,
+				5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.m in Sources */,
+				52ABCE7621BFC40600B0E1BD /* AMIDeviceEntity.swift in Sources */,
+				52ABCE6B21BF1E9000B0E1BD /* AMIStyleConstants.m in Sources */,
 				5224233621BD56D800513868 /* main.m in Sources */,
-				5224232921BD520300513868 /* AMIMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +652,7 @@
 		};
 		5224230221BD404400513868 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7963B6F040392E4B17DE318C /* Pods-L2ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -474,7 +666,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambrosus.L2ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "L2ios/L2ios-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "L2ios/starter/L2ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -483,6 +675,7 @@
 		};
 		5224230321BD404400513868 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C49DAE40EB87236EDD66A5BF /* Pods-L2ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -496,7 +689,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambrosus.L2ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "L2ios/L2ios-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "L2ios/starter/L2ios-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -504,6 +697,7 @@
 		};
 		5224230521BD404400513868 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E3BB4BF6CBCEA7DF538D45D /* Pods-L2iosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +717,7 @@
 		};
 		5224230621BD404400513868 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FDF07F54E9B7F86DD833D12 /* Pods-L2iosTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -542,6 +737,7 @@
 		};
 		5224230821BD404400513868 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2541F23F91A58A0885F8041 /* Pods-L2iosUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = L2iosUITests/Info.plist;
@@ -560,6 +756,7 @@
 		};
 		5224230921BD404400513868 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE0B80E3BACB9640224BEA20 /* Pods-L2iosUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = L2iosUITests/Info.plist;
