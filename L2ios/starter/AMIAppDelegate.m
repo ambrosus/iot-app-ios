@@ -5,6 +5,7 @@
 
 #import "AMIAppDelegate.h"
 #import "AMIMainViewController.h"
+#import "L2ios-Swift.h"
 
 @interface AMIAppDelegate ()
 @end
@@ -13,6 +14,11 @@
 
 - (void)dealloc {
     self.window = nil;
+}
+
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[AMIDBStarter sharedInstance] setupDatabase];
+    return YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
