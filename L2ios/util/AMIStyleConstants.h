@@ -10,5 +10,6 @@
 + (UIColor *)defaultBackgroundColor;
 + (UIColor *)defaultTextColor;
 + (BOOL)isNavigationBarTranslucent;
++ (CGFloat)masterViewCellHeight;
 
 @end

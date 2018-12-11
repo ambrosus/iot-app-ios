@@ -11,7 +11,7 @@ import GRDB
         return AMIDBStarter.sharedInstance.dbQueue
     } ()
     
-    @objc public func devices() -> Array<Data> {
-        AMIDeviceEntity.orderedByTSAdded()
-    }
+//    @objc public func devices() -> Array<Data> {
+//        AMIDeviceEntity.orderedByTSAdded()
+//    }
 }

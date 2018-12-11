@@ -17,8 +17,11 @@
 		5224233A21BD641100513868 /* amb_full_scr.png in Resources */ = {isa = PBXBuildFile; fileRef = 5224233921BD641100513868 /* amb_full_scr.png */; };
 		522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DE23521BDC2D800779AD6 /* AMIMainViewController.m */; };
 		528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B121BFF15F0073842E /* AMIDataCentral.swift */; };
-		5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.m */; };
-		5295511621BDC7FD00F75ED2 /* AMIDevicesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295511421BDC7FD00F75ED2 /* AMIDevicesListViewController.xib */; };
+		528459B421C00AB10073842E /* AMIDeviceModelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */; };
+		528459B621C00EE50073842E /* AMIDevicesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B521C00EE50073842E /* AMIDevicesListCell.swift */; };
+		528459B821C013E20073842E /* AMIDevicesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528459B721C013E20073842E /* AMIDevicesListCell.xib */; };
+		528459BA21C01C540073842E /* AMIDictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B921C01C540073842E /* AMIDictionaryEncoder.swift */; };
+		5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */; };
 		5295511A21BDC80D00F75ED2 /* AMIInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */; };
 		5295511B21BDC80D00F75ED2 /* AMIInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */; };
 		5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511E21BDCBC000F75ED2 /* UIColor+AMI.m */; };
@@ -70,9 +73,11 @@
 		522DE23421BDC2D800779AD6 /* AMIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMIMainViewController.h; sourceTree = "<group>"; };
 		522DE23521BDC2D800779AD6 /* AMIMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMIMainViewController.m; sourceTree = "<group>"; };
 		528459B121BFF15F0073842E /* AMIDataCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDataCentral.swift; sourceTree = "<group>"; };
-		5295511221BDC7FD00F75ED2 /* AMIDevicesListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIDevicesListViewController.h; sourceTree = "<group>"; };
-		5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIDevicesListViewController.m; sourceTree = "<group>"; };
-		5295511421BDC7FD00F75ED2 /* AMIDevicesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIDevicesListViewController.xib; sourceTree = "<group>"; };
+		528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDeviceModelEntity.swift; sourceTree = "<group>"; };
+		528459B521C00EE50073842E /* AMIDevicesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListCell.swift; sourceTree = "<group>"; };
+		528459B721C013E20073842E /* AMIDevicesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIDevicesListCell.xib; sourceTree = "<group>"; };
+		528459B921C01C540073842E /* AMIDictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDictionaryEncoder.swift; sourceTree = "<group>"; };
+		5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListViewController.swift; sourceTree = "<group>"; };
 		5295511721BDC80D00F75ED2 /* AMIInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIInfoViewController.h; sourceTree = "<group>"; };
 		5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIInfoViewController.m; sourceTree = "<group>"; };
 		5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIInfoViewController.xib; sourceTree = "<group>"; };
@@ -209,9 +214,9 @@
 			children = (
 				522DE23421BDC2D800779AD6 /* AMIMainViewController.h */,
 				522DE23521BDC2D800779AD6 /* AMIMainViewController.m */,
-				5295511221BDC7FD00F75ED2 /* AMIDevicesListViewController.h */,
-				5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.m */,
-				5295511421BDC7FD00F75ED2 /* AMIDevicesListViewController.xib */,
+				5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */,
+				528459B521C00EE50073842E /* AMIDevicesListCell.swift */,
+				528459B721C013E20073842E /* AMIDevicesListCell.xib */,
 				5295511721BDC80D00F75ED2 /* AMIInfoViewController.h */,
 				5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */,
 				5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */,
@@ -236,6 +241,8 @@
 				52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */,
 				528459B121BFF15F0073842E /* AMIDataCentral.swift */,
 				52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */,
+				528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */,
+				528459B921C01C540073842E /* AMIDictionaryEncoder.swift */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -374,11 +381,11 @@
 			files = (
 				52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */,
 				5295511B21BDC80D00F75ED2 /* AMIInfoViewController.xib in Resources */,
-				5295511621BDC7FD00F75ED2 /* AMIDevicesListViewController.xib in Resources */,
 				5224233A21BD641100513868 /* amb_full_scr.png in Resources */,
 				5224231621BD4B8B00513868 /* Assets.xcassets in Resources */,
 				5224231721BD4B8B00513868 /* LaunchScreen.storyboard in Resources */,
 				52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */,
+				528459B821C013E20073842E /* AMIDevicesListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,14 +485,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528459BA21C01C540073842E /* AMIDictionaryEncoder.swift in Sources */,
 				5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */,
 				5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */,
 				5295511A21BDC80D00F75ED2 /* AMIInfoViewController.m in Sources */,
 				528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */,
+				528459B421C00AB10073842E /* AMIDeviceModelEntity.swift in Sources */,
 				522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */,
 				52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */,
-				5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.m in Sources */,
+				5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.swift in Sources */,
 				52ABCE7621BFC40600B0E1BD /* AMIDeviceEntity.swift in Sources */,
+				528459B621C00EE50073842E /* AMIDevicesListCell.swift in Sources */,
 				52ABCE6B21BF1E9000B0E1BD /* AMIStyleConstants.m in Sources */,
 				5224233621BD56D800513868 /* main.m in Sources */,
 			);

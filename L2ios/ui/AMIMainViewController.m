@@ -4,9 +4,9 @@
 //  
 
 #import "AMIMainViewController.h"
-#import "AMIDevicesListViewController.h"
 #import "AMIInfoViewController.h"
 #import "AMIStyleConstants.h"
+#import "L2ios-Swift.h"
 
 @interface AMIMainViewController () <UITabBarControllerDelegate>
 
@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [AMIStyleConstants defaultBackgroundColor];
+    
     [self setupTabBar];
     [self setupViewControllers];
 }
@@ -33,7 +36,7 @@
 }
 
 - (NSArray *)createViewControllers {
-    UIViewController *devicesVC = [[AMIDevicesListViewController alloc] initWithNibName:@"AMIDevicesListViewController" bundle:nil];
+    UIViewController *devicesVC = [[AMIDevicesListViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *devicesNavVC = [[UINavigationController alloc] initWithRootViewController:devicesVC];
     UIImage *devicesVCIcon = [[UIImage imageNamed:@"devices-tab-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     devicesNavVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Devices" image:devicesVCIcon tag:0];

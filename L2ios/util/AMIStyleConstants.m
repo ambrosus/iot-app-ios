@@ -20,4 +20,8 @@
     return NO;
 }
 
++ (CGFloat)masterViewCellHeight {
+    return 100.0;
+}
+
 @end
