@@ -42,12 +42,12 @@ import GRDB
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         super.viewWillDisappear(animated)
     }
     
@@ -58,9 +58,13 @@ import GRDB
     }
     
     private func configureTableView() {
+        let styleConstants = AMIStyleConstants.sharedInstance
+        
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.clear
+        self.tableView.contentInset.top = styleConstants.masterViewCellContentInsets.top * 2
         self.tableView.register(AMIDevicesListCell.self, forCellReuseIdentifier: "AMIDevicesListCell")
+        
         let dbQueue = AMIDBStarter.sharedInstance.dbQueue
         frController = try! FetchedRecordsController(dbQueue!, request: request)
         
@@ -114,7 +118,7 @@ extension AMIDevicesListViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return AMIStyleConstants.masterViewCellHeight()
+        return AMIStyleConstants.sharedInstance.masterViewCellHeight
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,6 +128,8 @@ extension AMIDevicesListViewController {
     }
     
     private func configure(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        cell.selectionStyle = .none
+        
         if let dcell: AMIDevicesListCell = cell as? AMIDevicesListCell {
             let device = frController.record(at: indexPath)
             dcell.updateWithEntity(device)
