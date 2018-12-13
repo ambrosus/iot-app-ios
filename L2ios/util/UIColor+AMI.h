@@ -8,6 +8,6 @@
 @interface UIColor (AMI)
 
 + (instancetype)colorWithRGBA:(uint32_t)rgba;
-
++ (UIColor *)colorBetween:(UIColor *)colorA and:(UIColor *)colorB;
 
 @end

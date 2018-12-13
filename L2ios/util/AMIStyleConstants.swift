@@ -6,13 +6,30 @@
 import UIKit
 
 extension CGRect {
+    public init(x: CGFloat, y: CGFloat, uptoX: CGFloat, height: CGFloat) {
+        self = CGRect(x: x, y: y, width:uptoX - x, height: height)
+    }
+    
     public func horizontalDivideQuad(spacing:CGFloat = 0.0) -> (quad: CGRect, remainder: CGRect) {
         return (CGRect(x: origin.x, y: origin.y, width: size.height, height: size.height),
                 CGRect(x: origin.x + size.height + spacing, y: origin.y, width: size.width - size.height - spacing, height: size.height));
     }
     
-    public init(x: CGFloat, y: CGFloat, uptoX: CGFloat, height: CGFloat) {
-        self = CGRect(x: x, y: y, width:uptoX - x, height: height)
+    public func horizontalSlice(n:Int, startInset:CGFloat = 0.0, gap:CGFloat = 0.0, endInset:CGFloat = 0.0) -> [CGRect] {
+        if n < 2 {
+            return [self]
+        }
+        
+        var originX = origin.x + startInset
+        let newW = CGFloat(round((width - startInset - endInset - CGFloat(n - 1) * gap) / CGFloat(n)))
+        var result:[CGRect] = Array.init()
+        
+        for _ in 0..<n {
+            result.append(CGRect.init(x: originX, y: origin.y, width: newW, height: size.height))
+            originX += (newW + gap)
+        }
+        
+        return result
     }
 }
 
@@ -28,8 +45,16 @@ class AMIStyleConstants : NSObject {
         //return [UIColor.init(rgba: 0x2D313CFF), UIColor.init(rgba: 0x282B35FF)]
     }()
     
-    @objc public lazy var defaultTextColor: UIColor = {
+    @objc public lazy var brightTextColor: UIColor = {
+        return UIColor.lightText
+    }()
+    
+    @objc public lazy var dimmedTextColor: UIColor = {
         return UIColor.init(rgba: 0x727A92FF)
+    }()
+    
+    @objc public lazy var midTextColor: UIColor = {
+        return UIColor.init(between: brightTextColor, and: dimmedTextColor)
     }()
     
     @objc public lazy var isNavigationBarTranslucent: Bool = {
@@ -119,6 +144,10 @@ class AMIStyleConstants : NSObject {
     
     @objc public lazy var masterViewCellTickersRect: CGRect = {
         return CGRect.init(x: 78.0, y: 69.0, uptoX: self.masterViewCellMaxX, height: 18.0)
+    }()
+    
+    @objc public lazy var masterViewCellTickersRects: [CGRect] = {
+        return masterViewCellTickersRect.horizontalSlice(n: 3, startInset: 0, gap: 4, endInset: 16)
     }()
 }
 
