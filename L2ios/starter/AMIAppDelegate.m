@@ -5,6 +5,7 @@
 
 #import "AMIAppDelegate.h"
 #import "AMIMainViewController.h"
+#import "UIView+AMI.h"
 #import "L2ios-Swift.h"
 
 @interface AMIAppDelegate ()
@@ -25,6 +26,7 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UIViewController *vc = [[AMIMainViewController alloc] initWithNibName:@"AMIMainViewController" bundle:nil];
     window.rootViewController = vc;
+    [window applyVerticalGradient:[AMIStyleConstants sharedInstance].defaultBackgroundGradient];
     [window makeKeyAndVisible];
     self.window = window;
     

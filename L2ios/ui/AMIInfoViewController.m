@@ -4,7 +4,7 @@
 //  
 
 #import "AMIInfoViewController.h"
-#import "AMIStyleConstants.h"
+#import "L2ios-Swift.h"
 
 @interface AMIInfoViewController ()
 
@@ -14,7 +14,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [AMIStyleConstants defaultBackgroundColor];
 }
 
 @end

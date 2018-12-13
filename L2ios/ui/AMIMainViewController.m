@@ -5,7 +5,7 @@
 
 #import "AMIMainViewController.h"
 #import "AMIInfoViewController.h"
-#import "AMIStyleConstants.h"
+#import "UIImage+PDF.h"
 #import "L2ios-Swift.h"
 
 @interface AMIMainViewController () <UITabBarControllerDelegate>
@@ -16,36 +16,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [AMIStyleConstants defaultBackgroundColor];
-    
+    [self setupUI];
+}
+
+- (void)setupUI {
+    self.view.backgroundColor = [UIColor clearColor];
     [self setupTabBar];
-    [self setupViewControllers];
+    [self setupTabbedControllers];
 }
 
 - (void)setupTabBar {
-    //self.tabBar.shadowImage = [[UIImage alloc] init];
-    //self.tabBar.backgroundImage = [[UIImage alloc] init];
-    self.tabBar.barTintColor = [AMIStyleConstants defaultBackgroundColor];
-    self.tabBar.tintColor = [AMIStyleConstants defaultTextColor];
-    self.tabBar.translucent = [AMIStyleConstants isNavigationBarTranslucent];
+    AMIStyleConstants *styleConstants = [AMIStyleConstants sharedInstance];
+    
+    self.tabBar.barTintColor = [styleConstants navigationBarColor];
+    self.tabBar.tintColor = [styleConstants defaultTextColor];
+    self.tabBar.translucent = [styleConstants isNavigationBarTranslucent];
 }
 
-- (void)setupViewControllers {
-    self.viewControllers = [self createViewControllers];
-}
-
-- (NSArray *)createViewControllers {
+- (void)setupTabbedControllers {
     UIViewController *devicesVC = [[AMIDevicesListViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *devicesNavVC = [[UINavigationController alloc] initWithRootViewController:devicesVC];
-    UIImage *devicesVCIcon = [[UIImage imageNamed:@"devices-tab-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    devicesNavVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Devices" image:devicesVCIcon tag:0];
-    
     UIViewController *infoVC = [[AMIInfoViewController alloc] initWithNibName:@"AMIInfoViewController" bundle:nil];
-    UIImage *infoVCIcon = [[UIImage imageNamed:@"devices-info-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    infoVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Info" image:infoVCIcon tag:1];
+    NSArray *viewControllers = @[devicesNavVC, infoVC];
+    [self _assignViewControllers:viewControllers tabNames:@[@"Devices", @"More"] tabImages:@[@"icdev.pdf", @"ic-more.pdf"]];
     
-    return @[devicesNavVC, infoVC];
+    self.viewControllers = viewControllers;
+}
+
+- (void)_assignViewControllers:(NSArray *)vcs tabNames:(NSArray *)tabNames tabImages:(NSArray *)tabImageNames {
+    NSAssert(vcs.count > 0 && tabNames.count == vcs.count && tabImageNames.count == vcs.count, @"Bad args");
+    NSInteger index = 0;
+    for (UIViewController *vc in vcs) {
+        NSString *tabName = tabNames[index];
+        NSString *tabImageName = tabImageNames[index];
+        UIImage *tabImage = nil;
+        if ([tabImageName hasSuffix:@".pdf"]) {
+            tabImage = [UIImage imageWithPDFNamed:tabImageName atHeight:21];
+        }
+        else {
+            tabImage = [UIImage imageNamed:tabImageName];
+        }
+        
+        tabImage = [tabImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        vc.tabBarItem = [[UITabBarItem alloc] initWithTitle:tabName image:tabImage tag:index];
+        index++;
+    }
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
