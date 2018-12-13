@@ -68,9 +68,10 @@ import GRDB
         let dbQueue = AMIDBStarter.sharedInstance.dbQueue
         frController = try! FetchedRecordsController(dbQueue!, request: request)
         
+        var cumulativerowsToReload:Set<IndexPath> = Set.init()
         frController.trackChanges(
-            willChange: { [unowned self] _ in
-                self.tableView.beginUpdates()
+            willChange: { _ in
+                cumulativerowsToReload.removeAll()
             },
             onChange: { [unowned self] (controller, record, change) in
                 switch change {
@@ -81,28 +82,42 @@ import GRDB
                     self.tableView.deleteRows(at: [indexPath], with: .fade)
                     
                 case .update(let indexPath, _):
-                    if let cell = self.tableView.cellForRow(at: indexPath) {
-                        self.configure(cell, at: indexPath)
-                    }
+                    cumulativerowsToReload.insert(indexPath)
                     
                 case .move(let indexPath, let newIndexPath, _):
-                    // Actually move cells around for more demo effect :-)
                     let cell = self.tableView.cellForRow(at: indexPath)
                     self.tableView.moveRow(at: indexPath, to: newIndexPath)
                     if let cell = cell {
                         self.configure(cell, at: newIndexPath)
                     }
-                    
-                    // A quieter animation:
-                    // self.tableView.deleteRows(at: [indexPath], with: .fade)
-                    // self.tableView.insertRows(at: [newIndexPath], with: .fade)
                 }
             },
             didChange: { [unowned self] _ in
-                self.tableView.endUpdates()
+                if let vrows = self.tableView.indexPathsForVisibleRows {
+                    for indexPath in Set(vrows).intersection(cumulativerowsToReload) {
+                        if let cell = self.tableView.cellForRow(at: indexPath) {
+                            self.configure(cell, at: indexPath)
+                        }
+                    }
+                }
         })
         
+        
         try! frController.performFetch()
+        
+        let timer = Timer.init(timeInterval: 0.2, repeats: true) { t in
+            try! dbQueue!.write { db in
+                for var player in try AMIDeviceEntity.fetchAll(db) {
+                    player.temp += Double.random(in: -2.0..<2.1)
+                    player.humidity += Double.random(in: -0.002..<0.0021)
+                    player.pressure += Double.random(in: -200..<250)
+                    player.charge += Double.random(in: -0.002..<0.0021)
+                    try player.update(db)
+                }
+            }
+        }
+        
+        RunLoop.main.add(timer, forMode: .default)
     }
 }
 

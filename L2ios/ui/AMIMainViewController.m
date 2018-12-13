@@ -29,7 +29,7 @@
     AMIStyleConstants *styleConstants = [AMIStyleConstants sharedInstance];
     
     self.tabBar.barTintColor = [styleConstants navigationBarColor];
-    self.tabBar.tintColor = [styleConstants defaultTextColor];
+    self.tabBar.tintColor = [styleConstants brightTextColor];
     self.tabBar.translucent = [styleConstants isNavigationBarTranslucent];
 }
 

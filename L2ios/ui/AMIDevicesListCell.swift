@@ -15,7 +15,8 @@ class AMIDevicesListCell: UITableViewCell {
     var verticalSpacer = UIView()
     var titleLabel = UILabel()
     var subtitleLabel = UILabel()
-    var tickersLabel = UILabel()
+    var tickersLabels:[UILabel] = [UILabel(), UILabel(), UILabel()]
+    
     let tickerBuilder = AMIDevicesListCellTickerBuilder()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -49,18 +50,18 @@ class AMIDevicesListCell: UITableViewCell {
         self.contentView.layer.borderColor = styleConstants.masterViewCellBorderColor.cgColor
         
         battLabel.font = styleConstants.masterViewCellTickerFont
-        battLabel.textColor = styleConstants.defaultTextColor
+        battLabel.textColor = styleConstants.dimmedTextColor
         
         rssiLabel.font = styleConstants.masterViewCellTickerFont
-        rssiLabel.textColor = styleConstants.defaultTextColor
+        rssiLabel.textColor = styleConstants.dimmedTextColor
         
         verticalSpacer.backgroundColor = styleConstants.masterViewCellVerticalSpacerColor
         
         titleLabel.font = styleConstants.masterViewCellTitleFont
-        titleLabel.textColor = styleConstants.defaultTextColor
+        titleLabel.textColor = styleConstants.brightTextColor
         
         subtitleLabel.font = styleConstants.masterViewCellSubtitleFont
-        subtitleLabel.textColor = styleConstants.defaultTextColor
+        subtitleLabel.textColor = styleConstants.midTextColor
         
         self.contentView.addSubview(iconPic)
         self.contentView.addSubview(battPic)
@@ -70,15 +71,15 @@ class AMIDevicesListCell: UITableViewCell {
         self.contentView.addSubview(verticalSpacer)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(subtitleLabel)
-        self.contentView.addSubview(tickersLabel)
-        
-        
-        for (_, element) in [iconPic, battPic, battLabel, rssiPic, rssiLabel, verticalSpacer, titleLabel, subtitleLabel, tickersLabel].enumerated()
-        {
-            element.layer.borderColor = UIColor.init(white: 1.0, alpha: 0.1).cgColor;
-            element.layer.borderWidth = 0.25
+        tickersLabels.forEach { label in
+            self.contentView.addSubview(label)
         }
         
+        let allControls:[UIView]? = [iconPic, battPic, battLabel, rssiPic, rssiLabel, verticalSpacer, titleLabel, subtitleLabel] + tickersLabels
+        allControls?.forEach { entry in
+            entry.layer.borderColor = UIColor.init(white: 1.0, alpha: 0.1).cgColor;
+            entry.layer.borderWidth = 0.25
+        }
     }
     
     override func layoutSubviews() {
@@ -111,11 +112,14 @@ class AMIDevicesListCell: UITableViewCell {
         
         subtitleLabel.frame = styleConstants.masterViewCellSubtitleRect
         
-        
-        tickersLabel.frame = styleConstants.masterViewCellTickersRect
+        let tickersRects = styleConstants.masterViewCellTickersRects
+        for (index, label) in tickersLabels.enumerated() {
+            label.frame = tickersRects[index]
+        }
     }
     
     public func updateWithEntity(_ entity : AMIDeviceEntity) {
+        let styleConstants = AMIStyleConstants.sharedInstance
         iconPic.contentMode = .topLeft
         let img = UIImage.init(pdfNamed: "ic-devicebrand-generic.pdf", at:iconPic.frame.size)
         iconPic.setImage(img)
@@ -125,6 +129,10 @@ class AMIDevicesListCell: UITableViewCell {
         
         titleLabel.text = entity.name
         subtitleLabel.text = "Hex-address: " + NSString.hexMacAddressString(with: entity.macaddr)
-        tickersLabel.attributedText = tickerBuilder.attributedString(with: entity, lineHeight:tickersLabel.frame.height)
+        
+        let tickersAttrStrings = tickerBuilder.tickers(with: entity, lineHeight: styleConstants.masterViewCellTickersRect.size.height, maxEntries: tickersLabels.count)
+        for index in 0..<min(tickersAttrStrings.count, tickersLabels.count) {
+            tickersLabels[index].attributedText = tickersAttrStrings[index]
+        }
     }
 }

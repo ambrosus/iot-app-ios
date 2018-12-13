@@ -5,48 +5,55 @@
 
 import UIKit
 
-class AMIDevicesListCellTickerBuilder: NSObject {
-
-//    // Create text attachment
-//    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
-//    textAttachment.image = [UIImage imageNamed:nameicon];
-//    textAttachment.bounds = CGRectMake(0, 0, 20, 16);
-//
-//    // Attribute
-//    NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
-//    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithAttributedString:attrStringWithImage];
-//
-//    // Change base line
-//    [str addAttribute:NSBaselineOffsetAttributeName value:@(-1.5f * ratio) range:NSMakeRange(0, attrStringWithImage.length)];
-//
-//    NSRange rangeImage = [fullText rangeOfString:@"#image#"];
-//
-//    [attributedText replaceCharactersInRange:rangeImage withAttributedString:str];
-    
+class AMIDevicesListCellTickerBuilder: NSObject {    
     func attributize(text:NSString) {
         
     }
     
-    public func attributedString(with entity:AMIDeviceEntity, lineHeight:CGFloat) -> NSAttributedString {
+    public func tickers(with entity:AMIDeviceEntity, lineHeight:CGFloat, maxEntries:Int) -> [NSAttributedString] {
         let styleConstants = AMIStyleConstants.sharedInstance
         let tickerFont = styleConstants.masterViewCellTickerFont
         let tickerFontSize = tickerFont.pointSize
-        
-        let result = NSMutableAttributedString.init()
+        var result:[NSAttributedString] = []
         
         if !entity.temp.isNaN {
+            let entry = NSMutableAttributedString.init()
             let att = NSTextAttachment.init()
             att.image = UIImage.init(pdfNamed: "ic-sentortype-temp.pdf", atHeight:lineHeight)
-            att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight, uptoX: lineHeight, height: lineHeight)
+            att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight + 2, uptoX: lineHeight, height: lineHeight)
             let attStr = NSMutableAttributedString.init(attachment: att)
-            result.append(attStr)
-            result.append(NSAttributedString.init(string: "°C"))
+            entry.append(attStr)
+            entry.append(NSAttributedString.init(string: String(format: " %.0f°C", entity.temp)))
+            entry.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
+                                 range: NSRange.init(location: 0, length: entry.length))
+            result.append(entry)
         }
         
-        result.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.defaultTextColor, .baselineOffset: 0],
-                             range: NSRange.init(location: 0, length: result.length))
+        if !entity.pressure.isNaN {
+            let entry = NSMutableAttributedString.init()
+            let att = NSTextAttachment.init()
+            att.image = UIImage.init(pdfNamed: "ic-sentortype-prsr.pdf", atHeight:lineHeight)
+            att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight + 2, uptoX: lineHeight, height: lineHeight)
+            let attStr = NSMutableAttributedString.init(attachment: att)
+            entry.append(attStr)
+            entry.append(NSAttributedString.init(string: String(format: " %.1fkPa", entity.pressure / 1000.0)))
+            entry.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
+                                range: NSRange.init(location: 0, length: entry.length))
+            result.append(entry)
+        }
         
-        result.size()
+        if !entity.humidity.isNaN {
+            let entry = NSMutableAttributedString.init()
+            let att = NSTextAttachment.init()
+            att.image = UIImage.init(pdfNamed: "ic-sentortype-humi.pdf", atHeight:lineHeight)
+            att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight + 2, uptoX: lineHeight, height: lineHeight)
+            let attStr = NSMutableAttributedString.init(attachment: att)
+            entry.append(attStr)
+            entry.append(NSAttributedString.init(string: String(format: " %.0f%", entity.humidity * 100.0)))
+            entry.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
+                                range: NSRange.init(location: 0, length: entry.length))
+            result.append(entry)
+        }
         
         return result
     }

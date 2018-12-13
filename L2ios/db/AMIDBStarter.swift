@@ -15,7 +15,12 @@ import GRDB
         let fm = FileManager.default
         let url = try! fm.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let dbURL = url.appendingPathComponent("ami.sqlite")
-        let dbQueue = try! DatabaseQueue(path: dbURL.path)
+        
+        var conf = Configuration()
+        //conf.trace = { print($0) }
+        conf.maximumReaderCount = 3
+        
+        let dbQueue = try! DatabaseQueue(path: dbURL.path, configuration:conf)
         try! migrator.migrate(dbQueue)
         dbQueue.setupMemoryManagement(in: UIApplication.shared)
         self.dbQueue = dbQueue
@@ -58,21 +63,20 @@ import GRDB
                                              manufacturer:"Ruuvi",
                                              supportedProtocols:"BTL4,BTL5",
                                              onboardSensors:"HUMI,TEMP,BARO,BATT");
-            
+
             try model.insert(db)
             let modelIdRuuvi = model.id
-            
+
             model = AMIDeviceModelEntity(id:nil,
                                          type:"T2",
                                          name:"CC2640",
                                          manufacturer:"TI",
                                          supportedProtocols:"BTL4,BTL5",
                                          onboardSensors:"VOLT");
-            
+
             try model.insert(db)
             let modelIdCC2640 = model.id
             
-            // Populate tables with demo data
             for ctr:Int in 1..<101 {
                 let even = (ctr % 2 == 0 )
                 let modelId = even ? modelIdRuuvi : modelIdCC2640
@@ -85,7 +89,7 @@ import GRDB
                                              macaddr:NSData.randomMacAddress(),
                                              charge: 0.2,
                                              rssi: 0.2,
-                                             temp: 400.0,
+                                             temp: 20.0,
                                              pressure: 101000.0,
                                              humidity: 0.6,
                                              tsAdded: CACurrentMediaTime(),
