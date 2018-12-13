@@ -19,15 +19,48 @@
 		528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B121BFF15F0073842E /* AMIDataCentral.swift */; };
 		528459B421C00AB10073842E /* AMIDeviceModelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */; };
 		528459B621C00EE50073842E /* AMIDevicesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B521C00EE50073842E /* AMIDevicesListCell.swift */; };
-		528459B821C013E20073842E /* AMIDevicesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528459B721C013E20073842E /* AMIDevicesListCell.xib */; };
 		528459BA21C01C540073842E /* AMIDictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B921C01C540073842E /* AMIDictionaryEncoder.swift */; };
 		5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */; };
 		5295511A21BDC80D00F75ED2 /* AMIInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */; };
 		5295511B21BDC80D00F75ED2 /* AMIInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */; };
 		5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295511E21BDCBC000F75ED2 /* UIColor+AMI.m */; };
-		52ABCE6B21BF1E9000B0E1BD /* AMIStyleConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.m */; };
+		52ABCE6B21BF1E9000B0E1BD /* AMIStyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.swift */; };
 		52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */; };
 		52ABCE7621BFC40600B0E1BD /* AMIDeviceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */; };
+		52BC9EA121C19063007FDF83 /* UIView+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EA021C19063007FDF83 /* UIView+AMI.m */; };
+		52BC9EA521C1A982007FDF83 /* skk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EA421C1A982007FDF83 /* skk.pdf */; };
+		52BC9EB221C1AA6A007FDF83 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EA921C1AA69007FDF83 /* NSData+MD5.m */; };
+		52BC9EB321C1AA6A007FDF83 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EAB21C1AA69007FDF83 /* NSString+MD5.m */; };
+		52BC9EB421C1AA6A007FDF83 /* PDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EAD21C1AA69007FDF83 /* PDFView.m */; };
+		52BC9EB521C1AA6A007FDF83 /* UIImage+PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EAF21C1AA69007FDF83 /* UIImage+PDF.m */; };
+		52BC9EB621C1AA6A007FDF83 /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EB121C1AA69007FDF83 /* UIView+Image.m */; };
+		52BC9EBA21C1BF6C007FDF83 /* ic-devicebrand-generic.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EB921C1BF6C007FDF83 /* ic-devicebrand-generic.pdf */; };
+		52BC9EBC21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EBB21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift */; };
+		52BC9EBF21C1D8AF007FDF83 /* NSData+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EBE21C1D8AF007FDF83 /* NSData+AMI.m */; };
+		52BC9EC221C1D97D007FDF83 /* NSString+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EC121C1D97D007FDF83 /* NSString+AMI.m */; };
+		52BC9EC421C24D3E007FDF83 /* ic-sensortype-nuke.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EC321C24D3E007FDF83 /* ic-sensortype-nuke.pdf */; };
+		52BC9EC621C24E51007FDF83 /* ic-more.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EC521C24E51007FDF83 /* ic-more.pdf */; };
+		52BC9EC821C257A8007FDF83 /* ic-battery.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EC721C257A8007FDF83 /* ic-battery.pdf */; };
+		52BC9ECA21C25B0D007FDF83 /* icdev.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EC921C25B0D007FDF83 /* icdev.pdf */; };
+		52BC9ECC21C29222007FDF83 /* ic-rssi.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECB21C29222007FDF83 /* ic-rssi.pdf */; };
+		52BC9EDF21C2A41B007FDF83 /* ic-sentortype-gyro.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECD21C2A419007FDF83 /* ic-sentortype-gyro.pdf */; };
+		52BC9EE021C2A41B007FDF83 /* ic-sentortype-accl.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECE21C2A419007FDF83 /* ic-sentortype-accl.pdf */; };
+		52BC9EE121C2A41B007FDF83 /* ic-sentortype-vibr.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECF21C2A419007FDF83 /* ic-sentortype-vibr.pdf */; };
+		52BC9EE221C2A41B007FDF83 /* ic-sentortype-irtm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED021C2A419007FDF83 /* ic-sentortype-irtm.pdf */; };
+		52BC9EE321C2A41B007FDF83 /* ic-sentortype-prsr.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED121C2A41A007FDF83 /* ic-sentortype-prsr.pdf */; };
+		52BC9EE421C2A41B007FDF83 /* ic-sentortype-gass.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED221C2A41A007FDF83 /* ic-sentortype-gass.pdf */; };
+		52BC9EE521C2A41B007FDF83 /* ic-sentortype-aqua.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED321C2A41A007FDF83 /* ic-sentortype-aqua.pdf */; };
+		52BC9EE621C2A41B007FDF83 /* ic-sentortype-vacu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED421C2A41A007FDF83 /* ic-sentortype-vacu.pdf */; };
+		52BC9EE721C2A41B007FDF83 /* ic-sentortype-dist.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED521C2A41A007FDF83 /* ic-sentortype-dist.pdf */; };
+		52BC9EE821C2A41B007FDF83 /* ic-sentortype-sonn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED621C2A41A007FDF83 /* ic-sentortype-sonn.pdf */; };
+		52BC9EE921C2A41B007FDF83 /* ic-sentortype-hall.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED721C2A41A007FDF83 /* ic-sentortype-hall.pdf */; };
+		52BC9EEA21C2A41B007FDF83 /* ic-sentortype-magn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED821C2A41A007FDF83 /* ic-sentortype-magn.pdf */; };
+		52BC9EEB21C2A41B007FDF83 /* ic-sentortype-phhh.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED921C2A41A007FDF83 /* ic-sentortype-phhh.pdf */; };
+		52BC9EEC21C2A41B007FDF83 /* ic-sentortype-rxfx.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDA21C2A41A007FDF83 /* ic-sentortype-rxfx.pdf */; };
+		52BC9EED21C2A41B007FDF83 /* ic-sentortype-temp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDB21C2A41B007FDF83 /* ic-sentortype-temp.pdf */; };
+		52BC9EEE21C2A41B007FDF83 /* ic-sentortype-ldar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDC21C2A41B007FDF83 /* ic-sentortype-ldar.pdf */; };
+		52BC9EEF21C2A41B007FDF83 /* ic-sentortype-ligh.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDD21C2A41B007FDF83 /* ic-sentortype-ligh.pdf */; };
+		52BC9EF021C2A41B007FDF83 /* ic-sentortype-humi.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */; };
 		52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */; };
 		52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */; };
 		6CF72EDBCAE1CF0F300762ED /* Pods_L2ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4341EF523A7BF06266A06F2 /* Pods_L2ios.framework */; };
@@ -75,7 +108,6 @@
 		528459B121BFF15F0073842E /* AMIDataCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDataCentral.swift; sourceTree = "<group>"; };
 		528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDeviceModelEntity.swift; sourceTree = "<group>"; };
 		528459B521C00EE50073842E /* AMIDevicesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListCell.swift; sourceTree = "<group>"; };
-		528459B721C013E20073842E /* AMIDevicesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIDevicesListCell.xib; sourceTree = "<group>"; };
 		528459B921C01C540073842E /* AMIDictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDictionaryEncoder.swift; sourceTree = "<group>"; };
 		5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListViewController.swift; sourceTree = "<group>"; };
 		5295511721BDC80D00F75ED2 /* AMIInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIInfoViewController.h; sourceTree = "<group>"; };
@@ -83,10 +115,51 @@
 		5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AMIInfoViewController.xib; sourceTree = "<group>"; };
 		5295511D21BDCBC000F75ED2 /* UIColor+AMI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AMI.h"; sourceTree = "<group>"; };
 		5295511E21BDCBC000F75ED2 /* UIColor+AMI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AMI.m"; sourceTree = "<group>"; };
-		52ABCE6921BF1E9000B0E1BD /* AMIStyleConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIStyleConstants.h; sourceTree = "<group>"; };
-		52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIStyleConstants.m; sourceTree = "<group>"; };
+		52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIStyleConstants.swift; sourceTree = "<group>"; };
 		52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMIDBStarter.swift; sourceTree = "<group>"; };
 		52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDeviceEntity.swift; sourceTree = "<group>"; };
+		52BC9E9F21C19063007FDF83 /* UIView+AMI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+AMI.h"; sourceTree = "<group>"; };
+		52BC9EA021C19063007FDF83 /* UIView+AMI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+AMI.m"; sourceTree = "<group>"; };
+		52BC9EA421C1A982007FDF83 /* skk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = skk.pdf; sourceTree = "<group>"; };
+		52BC9EA821C1AA69007FDF83 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		52BC9EA921C1AA69007FDF83 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
+		52BC9EAA21C1AA69007FDF83 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		52BC9EAB21C1AA69007FDF83 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		52BC9EAC21C1AA69007FDF83 /* PDFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFView.h; sourceTree = "<group>"; };
+		52BC9EAD21C1AA69007FDF83 /* PDFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFView.m; sourceTree = "<group>"; };
+		52BC9EAE21C1AA69007FDF83 /* UIImage+PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PDF.h"; sourceTree = "<group>"; };
+		52BC9EAF21C1AA69007FDF83 /* UIImage+PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PDF.m"; sourceTree = "<group>"; };
+		52BC9EB021C1AA69007FDF83 /* UIView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Image.h"; sourceTree = "<group>"; };
+		52BC9EB121C1AA69007FDF83 /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
+		52BC9EB921C1BF6C007FDF83 /* ic-devicebrand-generic.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-devicebrand-generic.pdf"; sourceTree = "<group>"; };
+		52BC9EBB21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListCellTickerBuilder.swift; sourceTree = "<group>"; };
+		52BC9EBD21C1D8AF007FDF83 /* NSData+AMI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+AMI.h"; sourceTree = "<group>"; };
+		52BC9EBE21C1D8AF007FDF83 /* NSData+AMI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+AMI.m"; sourceTree = "<group>"; };
+		52BC9EC021C1D97D007FDF83 /* NSString+AMI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AMI.h"; sourceTree = "<group>"; };
+		52BC9EC121C1D97D007FDF83 /* NSString+AMI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+AMI.m"; sourceTree = "<group>"; };
+		52BC9EC321C24D3E007FDF83 /* ic-sensortype-nuke.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-nuke.pdf"; sourceTree = "<group>"; };
+		52BC9EC521C24E51007FDF83 /* ic-more.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-more.pdf"; sourceTree = "<group>"; };
+		52BC9EC721C257A8007FDF83 /* ic-battery.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-battery.pdf"; sourceTree = "<group>"; };
+		52BC9EC921C25B0D007FDF83 /* icdev.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = icdev.pdf; sourceTree = "<group>"; };
+		52BC9ECB21C29222007FDF83 /* ic-rssi.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-rssi.pdf"; sourceTree = "<group>"; };
+		52BC9ECD21C2A419007FDF83 /* ic-sentortype-gyro.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-gyro.pdf"; sourceTree = "<group>"; };
+		52BC9ECE21C2A419007FDF83 /* ic-sentortype-accl.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-accl.pdf"; sourceTree = "<group>"; };
+		52BC9ECF21C2A419007FDF83 /* ic-sentortype-vibr.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-vibr.pdf"; sourceTree = "<group>"; };
+		52BC9ED021C2A419007FDF83 /* ic-sentortype-irtm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-irtm.pdf"; sourceTree = "<group>"; };
+		52BC9ED121C2A41A007FDF83 /* ic-sentortype-prsr.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-prsr.pdf"; sourceTree = "<group>"; };
+		52BC9ED221C2A41A007FDF83 /* ic-sentortype-gass.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-gass.pdf"; sourceTree = "<group>"; };
+		52BC9ED321C2A41A007FDF83 /* ic-sentortype-aqua.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-aqua.pdf"; sourceTree = "<group>"; };
+		52BC9ED421C2A41A007FDF83 /* ic-sentortype-vacu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-vacu.pdf"; sourceTree = "<group>"; };
+		52BC9ED521C2A41A007FDF83 /* ic-sentortype-dist.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-dist.pdf"; sourceTree = "<group>"; };
+		52BC9ED621C2A41A007FDF83 /* ic-sentortype-sonn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-sonn.pdf"; sourceTree = "<group>"; };
+		52BC9ED721C2A41A007FDF83 /* ic-sentortype-hall.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-hall.pdf"; sourceTree = "<group>"; };
+		52BC9ED821C2A41A007FDF83 /* ic-sentortype-magn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-magn.pdf"; sourceTree = "<group>"; };
+		52BC9ED921C2A41A007FDF83 /* ic-sentortype-phhh.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-phhh.pdf"; sourceTree = "<group>"; };
+		52BC9EDA21C2A41A007FDF83 /* ic-sentortype-rxfx.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-rxfx.pdf"; sourceTree = "<group>"; };
+		52BC9EDB21C2A41B007FDF83 /* ic-sentortype-temp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-temp.pdf"; sourceTree = "<group>"; };
+		52BC9EDC21C2A41B007FDF83 /* ic-sentortype-ldar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-ldar.pdf"; sourceTree = "<group>"; };
+		52BC9EDD21C2A41B007FDF83 /* ic-sentortype-ligh.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-ligh.pdf"; sourceTree = "<group>"; };
+		52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-humi.pdf"; sourceTree = "<group>"; };
 		52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-info-icon@2x.png"; sourceTree = "<group>"; };
 		52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-tab-icon@2x.png"; sourceTree = "<group>"; };
 		7963B6F040392E4B17DE318C /* Pods-L2ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L2ios/Pods-L2ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +223,7 @@
 		522422DB21BD404000513868 /* L2ios */ = {
 			isa = PBXGroup;
 			children = (
+				52BC9EA621C1AA69007FDF83 /* thirdparty */,
 				52ABCE7121BFAE9A00B0E1BD /* db */,
 				522DE23121BDC2D800779AD6 /* ui */,
 				5224233121BD56D800513868 /* starter */,
@@ -202,9 +276,34 @@
 		5224233821BD641100513868 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				52BC9ECE21C2A419007FDF83 /* ic-sentortype-accl.pdf */,
+				52BC9ED321C2A41A007FDF83 /* ic-sentortype-aqua.pdf */,
+				52BC9ED521C2A41A007FDF83 /* ic-sentortype-dist.pdf */,
+				52BC9ED221C2A41A007FDF83 /* ic-sentortype-gass.pdf */,
+				52BC9ECD21C2A419007FDF83 /* ic-sentortype-gyro.pdf */,
+				52BC9ED721C2A41A007FDF83 /* ic-sentortype-hall.pdf */,
+				52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */,
+				52BC9ED021C2A419007FDF83 /* ic-sentortype-irtm.pdf */,
+				52BC9EDC21C2A41B007FDF83 /* ic-sentortype-ldar.pdf */,
+				52BC9EDD21C2A41B007FDF83 /* ic-sentortype-ligh.pdf */,
+				52BC9ED821C2A41A007FDF83 /* ic-sentortype-magn.pdf */,
+				52BC9ED921C2A41A007FDF83 /* ic-sentortype-phhh.pdf */,
+				52BC9ED121C2A41A007FDF83 /* ic-sentortype-prsr.pdf */,
+				52BC9EDA21C2A41A007FDF83 /* ic-sentortype-rxfx.pdf */,
+				52BC9ED621C2A41A007FDF83 /* ic-sentortype-sonn.pdf */,
+				52BC9EDB21C2A41B007FDF83 /* ic-sentortype-temp.pdf */,
+				52BC9ED421C2A41A007FDF83 /* ic-sentortype-vacu.pdf */,
+				52BC9ECF21C2A419007FDF83 /* ic-sentortype-vibr.pdf */,
+				52BC9EC321C24D3E007FDF83 /* ic-sensortype-nuke.pdf */,
+				52BC9ECB21C29222007FDF83 /* ic-rssi.pdf */,
+				52BC9EC921C25B0D007FDF83 /* icdev.pdf */,
+				52BC9EC721C257A8007FDF83 /* ic-battery.pdf */,
+				52BC9EC521C24E51007FDF83 /* ic-more.pdf */,
+				52BC9EB921C1BF6C007FDF83 /* ic-devicebrand-generic.pdf */,
 				52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */,
 				52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */,
 				5224233921BD641100513868 /* amb_full_scr.png */,
+				52BC9EA421C1A982007FDF83 /* skk.pdf */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -216,7 +315,7 @@
 				522DE23521BDC2D800779AD6 /* AMIMainViewController.m */,
 				5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */,
 				528459B521C00EE50073842E /* AMIDevicesListCell.swift */,
-				528459B721C013E20073842E /* AMIDevicesListCell.xib */,
+				52BC9EBB21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift */,
 				5295511721BDC80D00F75ED2 /* AMIInfoViewController.h */,
 				5295511821BDC80D00F75ED2 /* AMIInfoViewController.m */,
 				5295511921BDC80D00F75ED2 /* AMIInfoViewController.xib */,
@@ -229,8 +328,13 @@
 			children = (
 				5295511D21BDCBC000F75ED2 /* UIColor+AMI.h */,
 				5295511E21BDCBC000F75ED2 /* UIColor+AMI.m */,
-				52ABCE6921BF1E9000B0E1BD /* AMIStyleConstants.h */,
-				52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.m */,
+				52ABCE6A21BF1E9000B0E1BD /* AMIStyleConstants.swift */,
+				52BC9E9F21C19063007FDF83 /* UIView+AMI.h */,
+				52BC9EA021C19063007FDF83 /* UIView+AMI.m */,
+				52BC9EBD21C1D8AF007FDF83 /* NSData+AMI.h */,
+				52BC9EBE21C1D8AF007FDF83 /* NSData+AMI.m */,
+				52BC9EC021C1D97D007FDF83 /* NSString+AMI.h */,
+				52BC9EC121C1D97D007FDF83 /* NSString+AMI.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -245,6 +349,31 @@
 				528459B921C01C540073842E /* AMIDictionaryEncoder.swift */,
 			);
 			path = db;
+			sourceTree = "<group>";
+		};
+		52BC9EA621C1AA69007FDF83 /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				52BC9EA721C1AA69007FDF83 /* UIImage+PDF */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		52BC9EA721C1AA69007FDF83 /* UIImage+PDF */ = {
+			isa = PBXGroup;
+			children = (
+				52BC9EA821C1AA69007FDF83 /* NSData+MD5.h */,
+				52BC9EA921C1AA69007FDF83 /* NSData+MD5.m */,
+				52BC9EAA21C1AA69007FDF83 /* NSString+MD5.h */,
+				52BC9EAB21C1AA69007FDF83 /* NSString+MD5.m */,
+				52BC9EAC21C1AA69007FDF83 /* PDFView.h */,
+				52BC9EAD21C1AA69007FDF83 /* PDFView.m */,
+				52BC9EAE21C1AA69007FDF83 /* UIImage+PDF.h */,
+				52BC9EAF21C1AA69007FDF83 /* UIImage+PDF.m */,
+				52BC9EB021C1AA69007FDF83 /* UIView+Image.h */,
+				52BC9EB121C1AA69007FDF83 /* UIView+Image.m */,
+			);
+			path = "UIImage+PDF";
 			sourceTree = "<group>";
 		};
 		9DFDBBF010AD93C10E295547 /* Pods */ = {
@@ -379,13 +508,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BC9EEC21C2A41B007FDF83 /* ic-sentortype-rxfx.pdf in Resources */,
+				52BC9EA521C1A982007FDF83 /* skk.pdf in Resources */,
+				52BC9ECC21C29222007FDF83 /* ic-rssi.pdf in Resources */,
+				52BC9EED21C2A41B007FDF83 /* ic-sentortype-temp.pdf in Resources */,
+				52BC9EE921C2A41B007FDF83 /* ic-sentortype-hall.pdf in Resources */,
+				52BC9EE821C2A41B007FDF83 /* ic-sentortype-sonn.pdf in Resources */,
 				52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */,
 				5295511B21BDC80D00F75ED2 /* AMIInfoViewController.xib in Resources */,
+				52BC9EE121C2A41B007FDF83 /* ic-sentortype-vibr.pdf in Resources */,
+				52BC9EE521C2A41B007FDF83 /* ic-sentortype-aqua.pdf in Resources */,
 				5224233A21BD641100513868 /* amb_full_scr.png in Resources */,
+				52BC9EEF21C2A41B007FDF83 /* ic-sentortype-ligh.pdf in Resources */,
+				52BC9EEA21C2A41B007FDF83 /* ic-sentortype-magn.pdf in Resources */,
+				52BC9EC421C24D3E007FDF83 /* ic-sensortype-nuke.pdf in Resources */,
+				52BC9EE621C2A41B007FDF83 /* ic-sentortype-vacu.pdf in Resources */,
+				52BC9EC621C24E51007FDF83 /* ic-more.pdf in Resources */,
+				52BC9EEE21C2A41B007FDF83 /* ic-sentortype-ldar.pdf in Resources */,
+				52BC9EC821C257A8007FDF83 /* ic-battery.pdf in Resources */,
+				52BC9EBA21C1BF6C007FDF83 /* ic-devicebrand-generic.pdf in Resources */,
+				52BC9ECA21C25B0D007FDF83 /* icdev.pdf in Resources */,
+				52BC9EE421C2A41B007FDF83 /* ic-sentortype-gass.pdf in Resources */,
+				52BC9EEB21C2A41B007FDF83 /* ic-sentortype-phhh.pdf in Resources */,
 				5224231621BD4B8B00513868 /* Assets.xcassets in Resources */,
+				52BC9EE321C2A41B007FDF83 /* ic-sentortype-prsr.pdf in Resources */,
 				5224231721BD4B8B00513868 /* LaunchScreen.storyboard in Resources */,
+				52BC9EDF21C2A41B007FDF83 /* ic-sentortype-gyro.pdf in Resources */,
 				52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */,
-				528459B821C013E20073842E /* AMIDevicesListCell.xib in Resources */,
+				52BC9EF021C2A41B007FDF83 /* ic-sentortype-humi.pdf in Resources */,
+				52BC9EE221C2A41B007FDF83 /* ic-sentortype-irtm.pdf in Resources */,
+				52BC9EE021C2A41B007FDF83 /* ic-sentortype-accl.pdf in Resources */,
+				52BC9EE721C2A41B007FDF83 /* ic-sentortype-dist.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,10 +585,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-L2ios/Pods-L2ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSVG/SwiftSVG.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSVG.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -485,10 +640,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BC9EA121C19063007FDF83 /* UIView+AMI.m in Sources */,
+				52BC9EB421C1AA6A007FDF83 /* PDFView.m in Sources */,
+				52BC9EBF21C1D8AF007FDF83 /* NSData+AMI.m in Sources */,
 				528459BA21C01C540073842E /* AMIDictionaryEncoder.swift in Sources */,
+				52BC9EB321C1AA6A007FDF83 /* NSString+MD5.m in Sources */,
+				52BC9EC221C1D97D007FDF83 /* NSString+AMI.m in Sources */,
 				5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */,
 				5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */,
+				52BC9EB521C1AA6A007FDF83 /* UIImage+PDF.m in Sources */,
+				52BC9EB221C1AA6A007FDF83 /* NSData+MD5.m in Sources */,
 				5295511A21BDC80D00F75ED2 /* AMIInfoViewController.m in Sources */,
+				52BC9EB621C1AA6A007FDF83 /* UIView+Image.m in Sources */,
+				52BC9EBC21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift in Sources */,
 				528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */,
 				528459B421C00AB10073842E /* AMIDeviceModelEntity.swift in Sources */,
 				522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */,
@@ -496,7 +660,7 @@
 				5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.swift in Sources */,
 				52ABCE7621BFC40600B0E1BD /* AMIDeviceEntity.swift in Sources */,
 				528459B621C00EE50073842E /* AMIDevicesListCell.swift in Sources */,
-				52ABCE6B21BF1E9000B0E1BD /* AMIStyleConstants.m in Sources */,
+				52ABCE6B21BF1E9000B0E1BD /* AMIStyleConstants.swift in Sources */,
 				5224233621BD56D800513868 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
