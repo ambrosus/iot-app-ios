@@ -4,7 +4,6 @@
 //  
 
 import UIKit
-import SwiftSVG
 
 class AMIDevicesListCell: UITableViewCell {
     var iconPic = UIImageView()
