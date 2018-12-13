@@ -1,16 +1,20 @@
 PODS:
   - GRDB.swift (3.6.1)
+  - SwiftSVG (2.2.0)
 
 DEPENDENCIES:
   - GRDB.swift (~> 3.6.0)
+  - SwiftSVG (~> 2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GRDB.swift
+    - SwiftSVG
 
 SPEC CHECKSUMS:
   GRDB.swift: 2ea998984ce0d8b869917e1452b5d87f1ec5e0dd
+  SwiftSVG: 19bc4e434dcf236ece45ddf75f5ee1d3ef8061e6
 
-PODFILE CHECKSUM: c723fd6f11815841c7156dcc2cb4979f04b18afa
+PODFILE CHECKSUM: 91f4caa1cf2f920853c467bc86a09109ab0cc73e
 
 COCOAPODS: 1.5.3

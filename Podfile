@@ -4,6 +4,7 @@ target 'L2ios' do
   use_frameworks!
 
   pod 'GRDB.swift', '~> 3.6.0'
+  pod 'SwiftSVG', '~> 2.0'
 
   target 'L2iosTests' do
     inherit! :search_paths
