@@ -27,15 +27,17 @@ class AMIDevicesListCellTickerBuilder: NSObject {
         
     }
     
-    public func attributedString(with entity:AMIDeviceEntity) -> NSAttributedString {
+    public func attributedString(with entity:AMIDeviceEntity, lineHeight:CGFloat) -> NSAttributedString {
         let styleConstants = AMIStyleConstants.sharedInstance
+        let tickerFont = styleConstants.masterViewCellTickerFont
+        let tickerFontSize = tickerFont.pointSize
         
         let result = NSMutableAttributedString.init()
         
         if !entity.temp.isNaN {
             let att = NSTextAttachment.init()
-            att.image = UIImage.init(pdfNamed: "ic-sentortype-temp.pdf", atHeight:17)
-            att.bounds = CGRect.init(x: 0, y: -5, uptoX: 17, height: 17)
+            att.image = UIImage.init(pdfNamed: "ic-sentortype-temp.pdf", atHeight:lineHeight)
+            att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight, uptoX: lineHeight, height: lineHeight)
             let attStr = NSMutableAttributedString.init(attachment: att)
             result.append(attStr)
             result.append(NSAttributedString.init(string: "°C"))

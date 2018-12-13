@@ -28,7 +28,6 @@
 		52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */; };
 		52ABCE7621BFC40600B0E1BD /* AMIDeviceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */; };
 		52BC9EA121C19063007FDF83 /* UIView+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EA021C19063007FDF83 /* UIView+AMI.m */; };
-		52BC9EA521C1A982007FDF83 /* skk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EA421C1A982007FDF83 /* skk.pdf */; };
 		52BC9EB221C1AA6A007FDF83 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EA921C1AA69007FDF83 /* NSData+MD5.m */; };
 		52BC9EB321C1AA6A007FDF83 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EAB21C1AA69007FDF83 /* NSString+MD5.m */; };
 		52BC9EB421C1AA6A007FDF83 /* PDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EAD21C1AA69007FDF83 /* PDFView.m */; };
@@ -120,7 +119,6 @@
 		52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDeviceEntity.swift; sourceTree = "<group>"; };
 		52BC9E9F21C19063007FDF83 /* UIView+AMI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+AMI.h"; sourceTree = "<group>"; };
 		52BC9EA021C19063007FDF83 /* UIView+AMI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+AMI.m"; sourceTree = "<group>"; };
-		52BC9EA421C1A982007FDF83 /* skk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = skk.pdf; sourceTree = "<group>"; };
 		52BC9EA821C1AA69007FDF83 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
 		52BC9EA921C1AA69007FDF83 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		52BC9EAA21C1AA69007FDF83 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 				52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */,
 				52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */,
 				5224233921BD641100513868 /* amb_full_scr.png */,
-				52BC9EA421C1A982007FDF83 /* skk.pdf */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -509,7 +506,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52BC9EEC21C2A41B007FDF83 /* ic-sentortype-rxfx.pdf in Resources */,
-				52BC9EA521C1A982007FDF83 /* skk.pdf in Resources */,
 				52BC9ECC21C29222007FDF83 /* ic-rssi.pdf in Resources */,
 				52BC9EED21C2A41B007FDF83 /* ic-sentortype-temp.pdf in Resources */,
 				52BC9EE921C2A41B007FDF83 /* ic-sentortype-hall.pdf in Resources */,

@@ -125,6 +125,6 @@ class AMIDevicesListCell: UITableViewCell {
         
         titleLabel.text = entity.name
         subtitleLabel.text = "Hex-address: " + NSString.hexMacAddressString(with: entity.macaddr)
-        tickersLabel.attributedText = tickerBuilder.attributedString(with: entity)
+        tickersLabel.attributedText = tickerBuilder.attributedString(with: entity, lineHeight:tickersLabel.frame.height)
     }
 }
