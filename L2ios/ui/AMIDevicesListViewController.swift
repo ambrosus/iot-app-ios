@@ -7,6 +7,8 @@ import UIKit
 import GRDB
 
 @objc class AMIDevicesListViewController : UITableViewController {
+    private var gapMonitor:AMIGAPMonitor?
+    
     private enum Ordering {
         case byName
         case byTSAdded
@@ -104,20 +106,8 @@ import GRDB
         
         
         try! frController.performFetch()
-        
-        let timer = Timer.init(timeInterval: 0.2, repeats: true) { t in
-            try! dbQueue!.write { db in
-                for var player in try AMIDeviceEntity.fetchAll(db) {
-                    player.temp += Double.random(in: -2.0..<2.1)
-                    player.humidity += Double.random(in: -0.002..<0.0021)
-                    player.pressure += Double.random(in: -200..<250)
-                    player.charge += Double.random(in: -0.002..<0.0021)
-                    try player.update(db)
-                }
-            }
-        }
-        
-        RunLoop.main.add(timer, forMode: .default)
+
+        self.gapMonitor = AMIGAPMonitor.sharedInstance
     }
 }
 

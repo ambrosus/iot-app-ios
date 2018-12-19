@@ -77,7 +77,7 @@ import GRDB
             try model.insert(db)
             let modelIdCC2640 = model.id
             
-            for ctr:Int in 1..<101 {
+            for ctr:Int in 1..<21 {
                 let even = (ctr % 2 == 0 )
                 let modelId = even ? modelIdRuuvi : modelIdCC2640
                 let deviceName = even ? "Ruuvitag \(ctr / 2)" : "TI CC2640 \(ctr / 2)"

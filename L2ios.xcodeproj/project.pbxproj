@@ -15,8 +15,10 @@
 		5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224233321BD56D800513868 /* AMIAppDelegate.m */; };
 		5224233621BD56D800513868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5224233421BD56D800513868 /* main.m */; };
 		5224233A21BD641100513868 /* amb_full_scr.png in Resources */ = {isa = PBXBuildFile; fileRef = 5224233921BD641100513868 /* amb_full_scr.png */; };
+		522AB7A421CA599000037DCD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522AB7A321CA599000037DCD /* CoreBluetooth.framework */; };
+		522AB7A721CA5A8300037DCD /* AMIRuuviFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7A621CA5A8300037DCD /* AMIRuuviFrame.m */; };
 		522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DE23521BDC2D800779AD6 /* AMIMainViewController.m */; };
-		528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B121BFF15F0073842E /* AMIDataCentral.swift */; };
+		528459B221BFF15F0073842E /* AMIGAPMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B121BFF15F0073842E /* AMIGAPMonitor.swift */; };
 		528459B421C00AB10073842E /* AMIDeviceModelEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */; };
 		528459B621C00EE50073842E /* AMIDevicesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B521C00EE50073842E /* AMIDevicesListCell.swift */; };
 		528459BA21C01C540073842E /* AMIDictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B921C01C540073842E /* AMIDictionaryEncoder.swift */; };
@@ -102,9 +104,12 @@
 		5224233421BD56D800513868 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5224233721BD56F600513868 /* L2ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "L2ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		5224233921BD641100513868 /* amb_full_scr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amb_full_scr.png; sourceTree = "<group>"; };
+		522AB7A321CA599000037DCD /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		522AB7A521CA5A8300037DCD /* AMIRuuviFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMIRuuviFrame.h; sourceTree = "<group>"; };
+		522AB7A621CA5A8300037DCD /* AMIRuuviFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIRuuviFrame.m; sourceTree = "<group>"; };
 		522DE23421BDC2D800779AD6 /* AMIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMIMainViewController.h; sourceTree = "<group>"; };
 		522DE23521BDC2D800779AD6 /* AMIMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMIMainViewController.m; sourceTree = "<group>"; };
-		528459B121BFF15F0073842E /* AMIDataCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDataCentral.swift; sourceTree = "<group>"; };
+		528459B121BFF15F0073842E /* AMIGAPMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIGAPMonitor.swift; sourceTree = "<group>"; };
 		528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDeviceModelEntity.swift; sourceTree = "<group>"; };
 		528459B521C00EE50073842E /* AMIDevicesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListCell.swift; sourceTree = "<group>"; };
 		528459B921C01C540073842E /* AMIDictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDictionaryEncoder.swift; sourceTree = "<group>"; };
@@ -173,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522AB7A421CA599000037DCD /* CoreBluetooth.framework in Frameworks */,
 				6CF72EDBCAE1CF0F300762ED /* Pods_L2ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,7 +346,9 @@
 			isa = PBXGroup;
 			children = (
 				52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */,
-				528459B121BFF15F0073842E /* AMIDataCentral.swift */,
+				528459B121BFF15F0073842E /* AMIGAPMonitor.swift */,
+				522AB7A521CA5A8300037DCD /* AMIRuuviFrame.h */,
+				522AB7A621CA5A8300037DCD /* AMIRuuviFrame.m */,
 				52ABCE7521BFC40600B0E1BD /* AMIDeviceEntity.swift */,
 				528459B321C00AB10073842E /* AMIDeviceModelEntity.swift */,
 				528459B921C01C540073842E /* AMIDictionaryEncoder.swift */,
@@ -389,6 +397,7 @@
 		ABA95A7AE36F6F31E74BAE5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				522AB7A321CA599000037DCD /* CoreBluetooth.framework */,
 				B4341EF523A7BF06266A06F2 /* Pods_L2ios.framework */,
 				193602CA511F730F0DE857AA /* Pods_L2iosTests.framework */,
 				F9F8F373D24043C79B8A4E34 /* Pods_L2iosUITests.framework */,
@@ -469,6 +478,11 @@
 					522422D821BD404000513868 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					522422EC21BD404400513868 = {
 						CreatedOnToolsVersion = 10.1;
@@ -640,6 +654,7 @@
 				528459BA21C01C540073842E /* AMIDictionaryEncoder.swift in Sources */,
 				52BC9EB321C1AA6A007FDF83 /* NSString+MD5.m in Sources */,
 				52BC9EC221C1D97D007FDF83 /* NSString+AMI.m in Sources */,
+				522AB7A721CA5A8300037DCD /* AMIRuuviFrame.m in Sources */,
 				5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */,
 				5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */,
 				52BC9EB521C1AA6A007FDF83 /* UIImage+PDF.m in Sources */,
@@ -647,7 +662,7 @@
 				5295511A21BDC80D00F75ED2 /* AMIInfoViewController.m in Sources */,
 				52BC9EB621C1AA6A007FDF83 /* UIView+Image.m in Sources */,
 				52BC9EBC21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift in Sources */,
-				528459B221BFF15F0073842E /* AMIDataCentral.swift in Sources */,
+				528459B221BFF15F0073842E /* AMIGAPMonitor.swift in Sources */,
 				528459B421C00AB10073842E /* AMIDeviceModelEntity.swift in Sources */,
 				522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */,
 				52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */,

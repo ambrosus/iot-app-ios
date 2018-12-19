@@ -6,3 +6,4 @@
 #import "NSData+AMI.h"
 #import "UIColor+AMI.h"
 #import "UIImage+PDF.h"
+#import "AMIRuuviFrame.h"
