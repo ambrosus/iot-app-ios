@@ -21,13 +21,10 @@ import GRDB
         conf.maximumReaderCount = 3
         
         let dbQueue = try! DatabaseQueue(path: dbURL.path, configuration:conf)
+        
         try! migrator.migrate(dbQueue)
         dbQueue.setupMemoryManagement(in: UIApplication.shared)
         self.dbQueue = dbQueue
-        
-        try! dbQueue.write { db in
-            try db.execute("DELETE FROM device")
-        }
     }
     
     lazy var migrator: DatabaseMigrator = {
@@ -57,6 +54,7 @@ import GRDB
                 t.column("humidity", .double).notNull()
                 t.column("tsAdded", .integer).notNull()
                 t.column("tsLastSeen", .integer).notNull()
+                t.column("unseenFlag", .boolean).notNull()
             }
         }
         

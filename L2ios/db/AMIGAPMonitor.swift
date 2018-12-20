@@ -60,6 +60,11 @@ import GRDB
         }
         
         debugPrint("discovered ", uuid, frame.humidity, frame.temperature, frame.pressure, rssi)
+        
+        let lastTSToShow = CACurrentMediaTime() - 5.0
+        let oldKeys = rateLimitingTable.filter({$0.value < lastTSToShow})
+        oldKeys.forEach({rateLimitingTable.removeValue(forKey: $0.key)})
+        
         if let dbq = self.dbQueue {
             try! dbq.write { db in
                 let name = (mock ? "Mock AMB " : "Ruuvi ") + String(uuid.suffix(4))
@@ -76,7 +81,8 @@ import GRDB
                                              pressure: frame.pressure,
                                              humidity: frame.humidity,
                                              tsAdded: CACurrentMediaTime(),
-                                             tsLastSeen: CACurrentMediaTime());
+                                             tsLastSeen: CACurrentMediaTime(),
+                                             unseenFlag: false);
                 
                 if let row = try! AMIDeviceEntity.fetchOne(db, "SELECT * FROM device WHERE macaddr = ?", arguments: [macaddr]) {
                     device.id = row.id
@@ -85,6 +91,10 @@ import GRDB
                 }
                 else {
                     try device.insert(db)
+                }
+                
+                if (oldKeys.count > 0) {
+                    try db.execute("UPDATE device SET unseenFlag = 1 WHERE macaddr in (?)", arguments: [oldKeys.map({"'" + $0.key + "'"}).joined(separator: ",")])
                 }
             }
         }
@@ -111,6 +121,11 @@ import GRDB
         }
         
         return result
+    }
+    
+    private func hideUnseenDevices() {
+        
+        
     }
     
     public func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
