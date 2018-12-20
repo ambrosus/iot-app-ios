@@ -50,9 +50,11 @@ class AMIDevicesListCell: UITableViewCell {
         
         battLabel.font = styleConstants.masterViewCellTickerFont
         battLabel.textColor = styleConstants.dimmedTextColor
+        battLabel.lineBreakMode = .byClipping
         
         rssiLabel.font = styleConstants.masterViewCellTickerFont
         rssiLabel.textColor = styleConstants.dimmedTextColor
+        rssiLabel.lineBreakMode = .byClipping
         
         verticalSpacer.backgroundColor = styleConstants.masterViewCellVerticalSpacerColor
         
@@ -123,11 +125,11 @@ class AMIDevicesListCell: UITableViewCell {
         let img = UIImage.init(pdfNamed: "ic-devicebrand-generic.pdf", at:iconPic.frame.size)
         iconPic.setImage(img)
         
-        battLabel.text = String(format: "%.0f", entity.charge * 100) + "%"
-        rssiLabel.text = String(format: "%.0f", entity.rssi * 100) + "dB"
+        battLabel.text = String(format: "%.1f", entity.charge) + "V"
+        rssiLabel.text = String(format: "%.0f", entity.rssi)
         
         titleLabel.text = entity.name
-        subtitleLabel.text = "Hex-address: " + NSString.hexMacAddressString(with: entity.macaddr)
+        subtitleLabel.text = "UUID: " + String(data: entity.macaddr, encoding:.utf8)!
         
         let tickersAttrStrings = tickerBuilder.tickers(with: entity, lineHeight: styleConstants.masterViewCellTickersRect.size.height, maxEntries: tickersLabels.count)
         for index in 0..<min(tickersAttrStrings.count, tickersLabels.count) {

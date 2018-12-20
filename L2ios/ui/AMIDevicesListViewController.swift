@@ -18,7 +18,7 @@ import GRDB
     private var frController: FetchedRecordsController<AMIDeviceEntity>!
     private var countObserver: TransactionObserver?
     
-    private var ordering: Ordering = .byTSLastSeen {
+    private var ordering: Ordering = .byTSAdded {
         didSet {
             try! frController.setRequest(request)
         }

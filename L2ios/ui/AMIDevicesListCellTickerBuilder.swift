@@ -49,7 +49,7 @@ class AMIDevicesListCellTickerBuilder: NSObject {
             att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight + 2, uptoX: lineHeight, height: lineHeight)
             let attStr = NSMutableAttributedString.init(attachment: att)
             entry.append(attStr)
-            entry.append(NSAttributedString.init(string: String(format: " %.0f%", entity.humidity * 100.0)))
+            entry.append(NSAttributedString.init(string: String(format: " %.1f%%", entity.humidity)))
             entry.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
                                 range: NSRange.init(location: 0, length: entry.length))
             result.append(entry)

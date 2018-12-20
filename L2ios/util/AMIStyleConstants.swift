@@ -94,7 +94,7 @@ class AMIStyleConstants : NSObject {
     }()
     
     @objc public lazy var masterViewCellSubtitleFont: UIFont = {
-        return UIFont.systemFont(ofSize: 14.0, weight:.light)
+        return UIFont.systemFont(ofSize: 10.0, weight:.light)
     }()
     
     @objc public lazy var masterViewCellTickerFont: UIFont = {
@@ -131,19 +131,19 @@ class AMIStyleConstants : NSObject {
     
     @objc public lazy var masterViewCellMaxX: CGFloat = {
         let horizInsets = self.masterViewCellContentInsets.right + self.masterViewCellContentInsets.left
-        return UIScreen.main.bounds.size.width - horizInsets - 15
+        return UIScreen.main.bounds.size.width - horizInsets - 8
     }()
     
     @objc public lazy var masterViewCellTitleRect: CGRect = {
-        return CGRect.init(x: 78.0, y: 17.0, uptoX: self.masterViewCellMaxX, height: 17.0)
+        return CGRect.init(x: 75.0, y: 17.0, uptoX: self.masterViewCellMaxX, height: 17.0)
     }()
     
     @objc public lazy var masterViewCellSubtitleRect: CGRect = {
-        return CGRect.init(x: 78.0, y: 37.0, uptoX: self.masterViewCellMaxX, height: 17.0)
+        return CGRect.init(x: 75.0, y: 37.0, uptoX: self.masterViewCellMaxX, height: 14.0)
     }()
     
     @objc public lazy var masterViewCellTickersRect: CGRect = {
-        return CGRect.init(x: 78.0, y: 69.0, uptoX: self.masterViewCellMaxX, height: 18.0)
+        return CGRect.init(x: 75.0, y: 69.0, uptoX: self.masterViewCellMaxX, height: 18.0)
     }()
     
     @objc public lazy var masterViewCellTickersRects: [CGRect] = {
