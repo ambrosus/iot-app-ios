@@ -61,7 +61,15 @@ class AMIStyleConstants : NSObject {
         return false
     }()
     
-    @objc public lazy var navigationBarColor: UIColor = {
+    @objc public lazy var navigationBarFont: UIFont = {
+        return UIFont.systemFont(ofSize: 20.0, weight:.regular)
+    }()
+    
+    @objc public lazy var navigationBarTextColor: UIColor = {
+        return UIColor.white
+    }()
+    
+    @objc public lazy var tabbarColor: UIColor = {
         return UIColor.init(rgba: 0x282D4CFF)
     }()
     
@@ -149,5 +157,47 @@ class AMIStyleConstants : NSObject {
     @objc public lazy var masterViewCellTickersRects: [CGRect] = {
         return masterViewCellTickersRect.horizontalSlice(n: 3, startInset: 0, gap: 4, endInset: 16)
     }()
+    
+    //==================================================================================================================
+    
+    @objc public lazy var detailViewSmallFont: UIFont = {
+        return UIFont.systemFont(ofSize: 12.0, weight:.light)
+    }()
+    
+    @objc public lazy var detailViewMediumFont: UIFont = {
+        return UIFont.systemFont(ofSize: 14.0, weight:.light)
+    }()
+    
+    @objc public lazy var detailViewConfigureButtonGradient: [UIColor] = {
+        return [UIColor.init(rgba: 0x30BBB8FF), UIColor.init(rgba: 0x388DDAFF)]
+    }()
+    
+    @objc public lazy var detailViewCellContentInsets: UIEdgeInsets = {
+        return UIEdgeInsets.init(top: 5, left: 16, bottom: 5, right: 16)
+    }()
+    
+    @objc public func detailViewChartsTableYOffset(_ rowCount: Int) -> CGFloat  {
+        let scrSize = UIScreen.main.bounds.size
+        return scrSize.height - CGFloat(min(rowCount, 4)) * detailViewCellHeight
+    }
+    
+//    @objc public lazy var detailViewTableRect: CGRect = {
+//        let scrSize = UIScreen.main.bounds.size
+//        return CGRect.init(x: 0, y:250.0, uptoX: scrSize.width, height: scrSize.height - 250.0)
+//    }()
+    
+    @objc public lazy var detailViewCellHeight: CGFloat = {
+        return 90;
+    }()
+    
+    @objc public lazy var detailViewCellBackgroundColor: UIColor = {
+        return UIColor.init(rgba: 0x374064FF);
+    }()
+    
+    @objc public lazy var detailViewCellCornerRadius: CGFloat = {
+        return 4.0;
+    }()
+    
+    
 }
 
