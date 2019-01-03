@@ -87,14 +87,17 @@ import GRDB
                     cumulativerowsToReload.insert(indexPath)
                     
                 case .move(let indexPath, let newIndexPath, _):
-                    let cell = self.tableView.cellForRow(at: indexPath)
-                    self.tableView.moveRow(at: indexPath, to: newIndexPath)
-                    if let cell = cell {
-                        self.configure(cell, at: newIndexPath)
-                    }
+                    break
+//                    let nrows = tableView.numberOfRows(inSection: 0)
+//                    let cell = self.tableView.cellForRow(at: indexPath)
+//                    self.tableView.moveRow(at: indexPath, to: newIndexPath)
+//                    if let cell = cell {
+//                        self.configure(cell, at: newIndexPath)
+//                    }
                 }
             },
             didChange: { [unowned self] _ in
+                
                 if let vrows = self.tableView.indexPathsForVisibleRows {
                     for indexPath in Set(vrows).intersection(cumulativerowsToReload) {
                         if let cell = self.tableView.cellForRow(at: indexPath) {
@@ -139,6 +142,14 @@ extension AMIDevicesListViewController {
             let device = frController.record(at: indexPath)
             dcell.updateWithEntity(device)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = AMIDeviceDetailViewController()
+        let device = frController.record(at: indexPath)
+        vc.entity = device
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -9,7 +9,6 @@
 #import "L2ios-Swift.h"
 
 @interface AMIMainViewController () <UITabBarControllerDelegate>
-
 @end
 
 @implementation AMIMainViewController
@@ -28,14 +27,14 @@
 - (void)setupTabBar {
     AMIStyleConstants *styleConstants = [AMIStyleConstants sharedInstance];
     
-    self.tabBar.barTintColor = [styleConstants navigationBarColor];
+    self.tabBar.barTintColor = [styleConstants tabbarColor];
     self.tabBar.tintColor = [styleConstants brightTextColor];
     self.tabBar.translucent = [styleConstants isNavigationBarTranslucent];
 }
 
 - (void)setupTabbedControllers {
     UIViewController *devicesVC = [[AMIDevicesListViewController alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController *devicesNavVC = [[UINavigationController alloc] initWithRootViewController:devicesVC];
+    UINavigationController *devicesNavVC = [[AMINavigationController alloc] initWithRootViewController:devicesVC];
     UIViewController *infoVC = [[AMIInfoViewController alloc] initWithNibName:@"AMIInfoViewController" bundle:nil];
     NSArray *viewControllers = @[devicesNavVC, infoVC];
     [self _assignViewControllers:viewControllers tabNames:@[@"Devices", @"More"] tabImages:@[@"icdev.pdf", @"ic-more.pdf"]];

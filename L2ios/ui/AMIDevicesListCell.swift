@@ -129,7 +129,7 @@ class AMIDevicesListCell: UITableViewCell {
         rssiLabel.text = String(format: "%.0f", entity.rssi)
         
         titleLabel.text = entity.name
-        subtitleLabel.text = "UUID: " + String(data: entity.macaddr, encoding:.utf8)!
+        subtitleLabel.text = "UUID: " + entity.macaddr
         
         let tickersAttrStrings = tickerBuilder.tickers(with: entity, lineHeight: styleConstants.masterViewCellTickersRect.size.height, maxEntries: tickersLabels.count)
         for index in 0..<min(tickersAttrStrings.count, tickersLabels.count) {
