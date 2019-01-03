@@ -22,4 +22,13 @@
     return result;
 }
 
+- (NSString * __nonnull)times:(NSInteger)times {
+    NSMutableString *result = [[NSMutableString alloc] initWithCapacity:self.length * times];
+    for (int i = 0; i < times; i++) {
+        [result appendString:self];
+    }
+    
+    return result;
+}
+
 @end

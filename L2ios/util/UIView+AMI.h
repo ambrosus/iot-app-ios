@@ -8,5 +8,6 @@
 @interface UIView (AMI)
 
 - (void)applyVerticalGradient:(NSArray<UIColor *> *)gradient;
+- (void)applyHorizontalGradient:(NSArray<UIColor *> *)gradient;
 
 @end

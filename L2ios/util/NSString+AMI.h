@@ -8,6 +8,7 @@
 @interface NSString (AMI)
 
 + (NSString * __nonnull)hexMacAddressStringWithData:(NSData *)macAddrData;
+- (NSString * __nonnull)times:(NSInteger)times;
 
 @end
 
