@@ -50,7 +50,7 @@ class AMIDeviceSensorChartCell: UITableViewCell {
         self.chartView.frame = self.contentView.bounds
     }
     
-    public func updateWithEntity(_ entity : AMIDeviceEntity) {
+    public func updateWithEntity(_ entity : AMIDeviceRecord) {
         mockInput?.updateChart(entity.unreachableFlag)
     }
 

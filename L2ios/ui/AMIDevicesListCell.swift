@@ -119,16 +119,16 @@ class AMIDevicesListCell: UITableViewCell {
         }
     }
     
-    public func updateWithEntity(_ entity : AMIDeviceEntity) {
+    public func updateWithEntity(_ entity : AMIDeviceRecord) {
         let styleConstants = AMIStyleConstants.sharedInstance
         iconPic.contentMode = .topLeft
         let img = UIImage.init(pdfNamed: "ic-devicebrand-generic.pdf", at:iconPic.frame.size)
         iconPic.setImage(img)
         
-        battLabel.text = String(format: "%.1f", entity.charge) + "V"
+        battLabel.text = String(format: "%.1f", entity.battery) + "V"
         rssiLabel.text = String(format: "%.0f", entity.rssi)
         
-        titleLabel.text = entity.name
+        titleLabel.text = entity.broadcastedName
         subtitleLabel.text = "UUID: " + entity.macaddr
         
         let tickersAttrStrings = tickerBuilder.tickers(with: entity, lineHeight: styleConstants.masterViewCellTickersRect.size.height, maxEntries: tickersLabels.count)

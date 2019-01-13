@@ -15,7 +15,7 @@ import GRDB
         case byTSLastSeen
     }
     
-    private var frController: FetchedRecordsController<AMIDeviceEntity>!
+    private var frController: FetchedRecordsController<AMIDeviceRecord>!
     private var countObserver: TransactionObserver?
     
     private var ordering: Ordering = .byTSAdded {
@@ -24,14 +24,14 @@ import GRDB
         }
     }
     
-    private var request: QueryInterfaceRequest<AMIDeviceEntity> {
+    private var request: QueryInterfaceRequest<AMIDeviceRecord> {
         switch ordering {
         case .byName:
-            return AMIDeviceEntity.orderedByName()
+            return AMIDeviceRecord.orderedByBroadcastedName()
         case .byTSAdded:
-            return AMIDeviceEntity.orderedByTSAdded()
+            return AMIDeviceRecord.orderedByTSAdded()
         case .byTSLastSeen:
-            return AMIDeviceEntity.orderedByTSLastSeen()
+            return AMIDeviceRecord.orderedByTSLastSeen()
         }
         
     }

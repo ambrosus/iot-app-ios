@@ -7,7 +7,7 @@ import UIKit
 import GRDB
 
 @objc class AMIDeviceDetailViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
-    public var entity:AMIDeviceEntity? {
+    public var entity:AMIDeviceRecord? {
         didSet {
             updateConfigureButtonValue()
         }
@@ -24,11 +24,9 @@ import GRDB
     private var timeframeLabel = UILabel()
     private var gapMonitor:AMIGAPMonitor?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        configureMockInput()
+        setupOnLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,19 +38,24 @@ import GRDB
         super.viewWillDisappear(animated)
     }
     
-    private func configureUI() {
-        configureBackButton()
-        configureIcon()
-        configureStatusLabel()
-        configureDeviceNameLabel()
-        configureBattLabel()
-        configureConfigureButton()
-        configureTableView()
-        configureCurrentIndicatorsLabel()
-        configureTimeframeLabel()
+    private func setupOnLoad() {
+        setupUI()
+        //setupMockInput()
     }
     
-    private func configureBackButton() {
+    private func setupUI() {
+        setupBackButton()
+        setupIcon()
+        setupStatusLabel()
+        setupDeviceNameLabel()
+        setupBattLabel()
+        setupConfigureButton()
+        setupTableView()
+        setupCurrentIndicatorsLabel()
+        setupTimeframeLabel()
+    }
+    
+    private func setupBackButton() {
         let styleConstants = AMIStyleConstants.sharedInstance
         backButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(backButton)
@@ -68,7 +71,7 @@ import GRDB
         backButton.addTarget(self, action: #selector(self.onBackBtn(_:)), for: .primaryActionTriggered)
     }
     
-    private func configureIcon() {
+    private func setupIcon() {
         icon.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(icon)
         icon.setImage(UIImage.init(pdfNamed: "ic-devicebrand-generic.pdf", atHeight:41))
@@ -76,7 +79,7 @@ import GRDB
         icon.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 20.0).isActive = true
     }
     
-    private func configureStatusLabel() {
+    private func setupStatusLabel() {
         let styleConstants = AMIStyleConstants.sharedInstance
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statusLabel)
@@ -87,18 +90,18 @@ import GRDB
         statusLabel.topAnchor.constraint(equalTo: icon.topAnchor, constant: 2.0).isActive = true
     }
     
-    private func configureDeviceNameLabel() {
+    private func setupDeviceNameLabel() {
         let styleConstants = AMIStyleConstants.sharedInstance
         deviceNameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(deviceNameLabel)
-        deviceNameLabel.text = entity?.name
+        deviceNameLabel.text = entity?.broadcastedName
         deviceNameLabel.font = styleConstants.detailViewMediumFont
         deviceNameLabel.textColor = styleConstants.midTextColor
         deviceNameLabel.leftAnchor.constraint(equalTo: icon.rightAnchor, constant: 15.0).isActive = true
         deviceNameLabel.topAnchor.constraint(equalTo: icon.topAnchor, constant: 22.0).isActive = true
     }
     
-    private func configureBattLabel() {
+    private func setupBattLabel() {
         let styleConstants = AMIStyleConstants.sharedInstance
         battLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(battLabel)
@@ -115,7 +118,7 @@ import GRDB
         
     }
     
-    private func configureConfigureButton() {
+    private func setupConfigureButton() {
         let styleConstants = AMIStyleConstants.sharedInstance
         configureButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(configureButton)
@@ -146,7 +149,7 @@ import GRDB
         configureButton.setAttributedTitle(attrTitle, for: .normal)
     }
     
-    private func configureTableView() {
+    private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -164,7 +167,7 @@ import GRDB
         self.gapMonitor = AMIGAPMonitor.sharedInstance
     }
     
-    private func configureCurrentIndicatorsLabel() {
+    private func setupCurrentIndicatorsLabel() {
         let styleConstants = AMIStyleConstants.sharedInstance
         currentIndicatorsLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(currentIndicatorsLabel)
@@ -175,7 +178,7 @@ import GRDB
         currentIndicatorsLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -12.0).isActive = true
     }
     
-    private func configureTimeframeLabel() {
+    private func setupTimeframeLabel() {
         let styleConstants = AMIStyleConstants.sharedInstance
         timeframeLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(timeframeLabel)
@@ -186,16 +189,21 @@ import GRDB
         timeframeLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -12.0).isActive = true
     }
     
-    private func configureMockInput() {
-        let t = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [unowned self] t in
+    private func setupMockInput() {
+        let t = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] t in
+            guard let strongSelf = self else {
+                t.invalidate()
+                return
+            }
+            
             let unreachableChange = Int.random(in: 0..<100) < 1
-            if var entity = self.entity {
+            if var entity = strongSelf.entity {
                 if unreachableChange {
                     entity.unreachableFlag = false//!entity.unreachableFlag
                 }
-                self.entity = entity
+                strongSelf.entity = entity
                 
-                self.tableView.visibleCells.forEach{ tvc in
+                strongSelf.tableView.visibleCells.forEach{ tvc in
                     if let cell = tvc as? AMIDeviceSensorChartCell {
                         cell.updateWithEntity(entity)
                     }
