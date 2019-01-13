@@ -7,7 +7,7 @@ import UIKit
 import GRDB
 
 @objc class AMIDevicesListViewController : UITableViewController {
-    private var gapMonitor:AMIGAPMonitor?
+    private var gapMonitor:AMIBLECentral?
     
     private enum Ordering {
         case byName
@@ -110,7 +110,7 @@ import GRDB
         
         try! frController.performFetch()
 
-        self.gapMonitor = AMIGAPMonitor.sharedInstance
+        self.gapMonitor = AMIBLECentral.sharedInstance
     }
 }
 

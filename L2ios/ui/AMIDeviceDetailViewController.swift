@@ -22,7 +22,7 @@ import GRDB
     private var configureButton = UIButton()
     private var currentIndicatorsLabel = UILabel()
     private var timeframeLabel = UILabel()
-    private var gapMonitor:AMIGAPMonitor?
+    private var gapMonitor:AMIBLECentral?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,7 +164,7 @@ import GRDB
         tableView.backgroundColor = UIColor.clear
         tableView.register(AMIDeviceSensorChartCell.self, forCellReuseIdentifier: "AMIDeviceSensorChartCell")
         
-        self.gapMonitor = AMIGAPMonitor.sharedInstance
+        self.gapMonitor = AMIBLECentral.sharedInstance
     }
     
     private func setupCurrentIndicatorsLabel() {

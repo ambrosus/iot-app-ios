@@ -8,8 +8,8 @@ import CoreBluetooth
 import GRDB
 
 
-@objc class AMIGAPMonitor: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
-    @objc static let sharedInstance = AMIGAPMonitor()
+@objc class AMIBLECentral: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
+    @objc static let sharedInstance = AMIBLECentral()
     var rateLimitingTable = [String: Double]()
     var ambPeripherals:NSMutableOrderedSet = NSMutableOrderedSet.init()
     let ambServiceUUID  = CBUUID.init(string: "9eb70001-8c04-4c98-ae44-2ca32bfa549a")

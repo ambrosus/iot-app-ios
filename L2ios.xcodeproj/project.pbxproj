@@ -29,7 +29,7 @@
 		522AB7A421CA599000037DCD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 522AB7A321CA599000037DCD /* CoreBluetooth.framework */; };
 		522AB7A721CA5A8300037DCD /* AMIRuuviFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7A621CA5A8300037DCD /* AMIRuuviFrame.m */; };
 		522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522DE23521BDC2D800779AD6 /* AMIMainViewController.m */; };
-		528459B221BFF15F0073842E /* AMIGAPMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B121BFF15F0073842E /* AMIGAPMonitor.swift */; };
+		528459B221BFF15F0073842E /* AMIBLECentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B121BFF15F0073842E /* AMIBLECentral.swift */; };
 		528459B621C00EE50073842E /* AMIDevicesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B521C00EE50073842E /* AMIDevicesListCell.swift */; };
 		528459BA21C01C540073842E /* AMIDictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528459B921C01C540073842E /* AMIDictionaryEncoder.swift */; };
 		5295511521BDC7FD00F75ED2 /* AMIDevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */; };
@@ -132,7 +132,7 @@
 		522AB7A621CA5A8300037DCD /* AMIRuuviFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMIRuuviFrame.m; sourceTree = "<group>"; };
 		522DE23421BDC2D800779AD6 /* AMIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMIMainViewController.h; sourceTree = "<group>"; };
 		522DE23521BDC2D800779AD6 /* AMIMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMIMainViewController.m; sourceTree = "<group>"; };
-		528459B121BFF15F0073842E /* AMIGAPMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIGAPMonitor.swift; sourceTree = "<group>"; };
+		528459B121BFF15F0073842E /* AMIBLECentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIBLECentral.swift; sourceTree = "<group>"; };
 		528459B521C00EE50073842E /* AMIDevicesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListCell.swift; sourceTree = "<group>"; };
 		528459B921C01C540073842E /* AMIDictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDictionaryEncoder.swift; sourceTree = "<group>"; };
 		5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListViewController.swift; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 			children = (
 				52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */,
 				52ABCE7521BFC40600B0E1BD /* AMIDeviceRecord.swift */,
-				528459B121BFF15F0073842E /* AMIGAPMonitor.swift */,
+				528459B121BFF15F0073842E /* AMIBLECentral.swift */,
 				522AB7A521CA5A8300037DCD /* AMIRuuviFrame.h */,
 				522AB7A621CA5A8300037DCD /* AMIRuuviFrame.m */,
 				528459B921C01C540073842E /* AMIDictionaryEncoder.swift */,
@@ -696,7 +696,7 @@
 				52BC9EB221C1AA6A007FDF83 /* NSData+MD5.m in Sources */,
 				52BC9EB621C1AA6A007FDF83 /* UIView+Image.m in Sources */,
 				52BC9EBC21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift in Sources */,
-				528459B221BFF15F0073842E /* AMIGAPMonitor.swift in Sources */,
+				528459B221BFF15F0073842E /* AMIBLECentral.swift in Sources */,
 				522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */,
 				52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */,
 				5228CE5B21DD3D5D00914FF0 /* AMIDeviceSensorChartCell.swift in Sources */,
