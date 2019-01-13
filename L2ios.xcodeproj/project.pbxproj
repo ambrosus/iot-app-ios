@@ -72,6 +72,7 @@
 		52BC9EF021C2A41B007FDF83 /* ic-sentortype-humi.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */; };
 		52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */; };
 		52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */; };
+		52D1C6D521EB463000AC6521 /* AMIDBFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1C6D421EB463000AC6521 /* AMIDBFlags.swift */; };
 		6CF72EDBCAE1CF0F300762ED /* Pods_L2ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4341EF523A7BF06266A06F2 /* Pods_L2ios.framework */; };
 		A9424FFD9DF384D5CA4E2300 /* Pods_L2iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193602CA511F730F0DE857AA /* Pods_L2iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -184,6 +185,7 @@
 		52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-humi.pdf"; sourceTree = "<group>"; };
 		52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-info-icon@2x.png"; sourceTree = "<group>"; };
 		52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-tab-icon@2x.png"; sourceTree = "<group>"; };
+		52D1C6D421EB463000AC6521 /* AMIDBFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDBFlags.swift; sourceTree = "<group>"; };
 		7963B6F040392E4B17DE318C /* Pods-L2ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L2ios/Pods-L2ios.debug.xcconfig"; sourceTree = "<group>"; };
 		B2541F23F91A58A0885F8041 /* Pods-L2iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L2iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L2iosUITests/Pods-L2iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4341EF523A7BF06266A06F2 /* Pods_L2ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L2ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -376,6 +378,7 @@
 		52ABCE7121BFAE9A00B0E1BD /* db */ = {
 			isa = PBXGroup;
 			children = (
+				52D1C6D421EB463000AC6521 /* AMIDBFlags.swift */,
 				52ABCE7321BFAE9A00B0E1BD /* AMIDBStarter.swift */,
 				52ABCE7521BFC40600B0E1BD /* AMIDeviceRecord.swift */,
 				528459B121BFF15F0073842E /* AMIBLECentral.swift */,
@@ -691,6 +694,7 @@
 				52BC9EC221C1D97D007FDF83 /* NSString+AMI.m in Sources */,
 				522AB7A721CA5A8300037DCD /* AMIRuuviFrame.m in Sources */,
 				5224233521BD56D800513868 /* AMIAppDelegate.m in Sources */,
+				52D1C6D521EB463000AC6521 /* AMIDBFlags.swift in Sources */,
 				5295511F21BDCBC000F75ED2 /* UIColor+AMI.m in Sources */,
 				52BC9EB521C1AA6A007FDF83 /* UIImage+PDF.m in Sources */,
 				52BC9EB221C1AA6A007FDF83 /* NSData+MD5.m in Sources */,

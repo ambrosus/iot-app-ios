@@ -6,12 +6,6 @@
 import UIKit
 import GRDB
 
-struct Platform {
-    static var isSimulator: Bool {
-        return TARGET_OS_SIMULATOR != 0
-    }
-}
-
 @objc class AMIDBStarter : NSObject {
     @objc static let sharedInstance = AMIDBStarter()
     
@@ -29,8 +23,9 @@ struct Platform {
         conf.maximumReaderCount = 3
         
         let dbQueue = try! DatabaseQueue(path: dbURL.path, configuration:conf)
+        
         try! dbQueue.inDatabase { db in
-            try db.execute("PRAGMA page_size=8192; VACUUM;")
+            try db.execute("PRAGMA page_size=\(AMIDBFlags.pageSize); VACUUM;")
         }
         
         try! migrator.migrate(dbQueue)
@@ -63,7 +58,7 @@ struct Platform {
             }
         }
         
-        if Platform.isSimulator {
+        if AMIDBFlags.isSimulator {
             migrator.registerMigration("m0002_test_populate") { db in
                 for ctr:Int in 0..<3 {
                     let deviceName = "MockTag \(ctr / 2)"
