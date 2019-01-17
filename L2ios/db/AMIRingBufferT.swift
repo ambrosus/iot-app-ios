@@ -3,7 +3,7 @@
 //  (c) 2019 Ambrosus. All rights reserved.
 //  
 
-public struct RingBuffer<T> {
+public struct AMIRingBufferT<T> {
     private var array: [T?]
     private var readIndex = 0
     private var writeIndex = 0
@@ -50,7 +50,7 @@ public struct RingBuffer<T> {
     }
 }
 
-public extension RingBuffer: Sequence {
+extension AMIRingBufferT: Sequence {
     public func makeIterator() -> AnyIterator<T> {
         var index = readIndex
         return AnyIterator {

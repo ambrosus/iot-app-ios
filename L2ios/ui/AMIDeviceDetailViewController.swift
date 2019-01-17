@@ -22,7 +22,8 @@ import GRDB
     private var configureButton = UIButton()
     private var currentIndicatorsLabel = UILabel()
     private var timeframeLabel = UILabel()
-    private var gapMonitor:AMIBLECentral?
+    private var bleCentral:AMIBLECentral?
+    private var observer: TransactionObserver?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,14 @@ import GRDB
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewWillAppear(animated)
+        
+        let request = AMIDeviceRecord.filter(sql: "uuid = ?", arguments:[entity?.uuid])
+        let observation = ValueObservation.trackingOne(request)
+        
+        // Start observing the database
+        observer = try! observation.start(in: AMIDBStarter.sharedInstance.dbQueue!, onChange: { [unowned self] device in
+            self.entity = device
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -111,7 +120,7 @@ import GRDB
         battLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16.0).isActive = true
         battLabel.bottomAnchor.constraint(equalTo: deviceNameLabel.bottomAnchor, constant: 0.0).isActive = true
         battLabel.attributedText = NSAttributedString.title(withPDFIcon: "ic-battery.pdf",
-                                                          iconHeight: 18, spaces: 0, text: "30%",
+                                                          iconHeight: 18, spaces: 0, text: entity?.batteryText(),
                                                           font: styleConstants.detailViewSmallFont,
                                                           textColor: styleConstants.dimmedTextColor,
                                                           additionalOffset: -1.0)
@@ -164,7 +173,7 @@ import GRDB
         tableView.backgroundColor = UIColor.clear
         tableView.register(AMIDeviceSensorChartCell.self, forCellReuseIdentifier: "AMIDeviceSensorChartCell")
         
-        self.gapMonitor = AMIBLECentral.sharedInstance
+        self.bleCentral = AMIBLECentral.sharedInstance
     }
     
     private func setupCurrentIndicatorsLabel() {

@@ -4,3 +4,21 @@
 //  
 
 import Foundation
+import CoreBluetooth
+
+class AMIBLEHelper {
+    static func isPeripheralAMBL1(_ peripheral:CBPeripheral) -> Bool {
+        if let name = peripheral.name {
+            if name.hasPrefix("AMBL1") {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    static func isPeripheralDisconnected(_ peripheral:CBPeripheral) -> Bool {
+        let periphState = peripheral.state
+        return periphState == .disconnected
+    }
+}
