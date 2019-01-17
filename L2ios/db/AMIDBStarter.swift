@@ -16,11 +16,18 @@ import GRDB
         let url = try! fm.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let dbURL = url.appendingPathComponent("ami.sqlite")
         print("DB url: \(dbURL.path)")
-        try? fm.removeItem(at:dbURL)
+        
+        if AMIDBFlags.recreateDBOnEachStart {
+            try? fm.removeItem(at:dbURL)
+        }
         
         var conf = Configuration()
-        conf.trace = { print($0) }
-        conf.maximumReaderCount = 3
+        
+        if AMIDBFlags.logSQL {
+            conf.trace = { print($0) }
+        }
+        
+        conf.maximumReaderCount = AMIDBFlags.maximumReaderCount
         
         let dbQueue = try! DatabaseQueue(path: dbURL.path, configuration:conf)
         
@@ -40,7 +47,7 @@ import GRDB
             try db.create(table: "device") { t in
                 t.autoIncrementedPrimaryKey("id")
                 t.column("hwtype", .integer).notNull()
-                t.column("udid", .text).notNull()
+                t.column("uuid", .text).notNull()
                 t.column("macaddr", .text).notNull()
                 t.column("broadcastedName", .text).notNull()
                 t.column("baseName", .text).notNull()
@@ -48,6 +55,7 @@ import GRDB
                 t.column("addedTS", .integer).notNull()
                 t.column("lastSeenTS", .integer).notNull()
                 t.column("battery", .double).notNull()
+                t.column("batteryUnit", .integer).notNull()
                 t.column("rssi", .double).notNull()
                 t.column("temperature", .double).notNull()
                 t.column("pressure", .double).notNull()
@@ -55,30 +63,15 @@ import GRDB
                 t.column("unreachableFlag", .boolean).notNull()
                 t.column("active", .boolean).notNull()
                 t.column("signal", .blob).notNull()
+                t.column("signalUnixTS", .integer).notNull()
+                t.column("signalRate", .double).notNull()
             }
         }
         
         if AMIDBFlags.isSimulator {
             migrator.registerMigration("m0002_test_populate") { db in
                 for ctr:Int in 0..<3 {
-                    let deviceName = "MockTag \(ctr / 2)"
-                    var device = AMIDeviceRecord()
-                    device.hwtype = .ambSimulated
-                    device.udid = NSUUID().uuidString
-                    device.macaddr = "01:02:03:04:05:".appendingFormat("%02d", ctr)
-                    device.broadcastedName = deviceName
-                    device.baseName = "MockTag"
-                    device.userAssignedName = "Dev \(ctr)"
-                    device.addedTS = CACurrentMediaTime()
-                    device.lastSeenTS = device.addedTS
-                    device.battery = 3.3
-                    device.rssi = 3.0
-                    device.temperature = 20.0
-                    device.pressure = 101000.0
-                    device.humidity = 0.6
-                    device.unreachableFlag = false
-                    device.active = true
-                    device.signal = Data()
+                    var device = AMIDeviceRecord.mockDevice(ctr)
                     try device.insert(db)
                 }
             }

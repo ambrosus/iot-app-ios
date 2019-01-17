@@ -13,4 +13,16 @@ import UIKit
     static var pageSize: Int {
         return 8192
     }
+    
+    static var recreateDBOnEachStart: Bool {
+        return true
+    }
+    
+    static var logSQL: Bool {
+        return true
+    }
+    
+    static var maximumReaderCount: Int {
+        return 3
+    }
 }
