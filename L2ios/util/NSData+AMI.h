@@ -9,5 +9,6 @@
 
 + (nonnull NSData *)randomMacAddressData;
 + (nonnull NSData *)apdu_readRecordWithP1:(uint8_t)p1 P2:(uint8_t)p2 Le:(uint32_t)le;
+- (nonnull NSString *)formattedHexWithLineSize:(NSUInteger)lineSize;
 
 @end

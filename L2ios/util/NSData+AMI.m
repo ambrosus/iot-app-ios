@@ -31,4 +31,18 @@
     return [NSData dataWithBytes:bytes length:length];
 }
 
+- (NSString *)formattedHexWithLineSize:(NSUInteger)lineSize {
+    uint8_t *bytes = (uint8_t *)[self bytes];
+    NSUInteger length = [self length];
+    NSMutableString *buf = [NSMutableString stringWithCapacity:length * 3 + 1024];
+    for (int i = 0; i < length; i++) {
+        [buf appendFormat:@"%02hhX ", bytes[i]];
+        if (i % lineSize == (lineSize - 1)) {
+            [buf appendString:@"\n"];
+        }
+    }
+    
+    return buf;
+}
+
 @end
