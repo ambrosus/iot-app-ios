@@ -47,7 +47,6 @@ import GRDB
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if AMIBLEHelper.isPeripheralAMBL1(peripheral) {
-            NSLog("XX");
             if AMIBLEHelper.isPeripheralDisconnected(peripheral) {
                 if let _ = entities[peripheral.identifier] {
                     return
@@ -59,7 +58,10 @@ import GRDB
                 updater.state = .st_discovered
                 updater.record.uuid = peripheral.identifier.uuidString
                 updater.record.broadcastedName = peripheral.name!
-                updater.record.rssi = RSSI.doubleValue
+                let rssiDouble = RSSI.doubleValue
+                if (rssiDouble < 100.0) {
+                    updater.record.rssi = rssiDouble
+                }
                 updater.record.addedTS = CACurrentMediaTime()
                 updater.record.lastSeenTS = updater.record.addedTS
                 updater.record.active = true

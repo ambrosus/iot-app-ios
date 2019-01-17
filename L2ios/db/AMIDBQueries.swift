@@ -27,6 +27,8 @@ class AMIDBQueries: NSObject {
             else {
                 try record.insert(db)
             }
+            
+            record.saveTransientData()
         }
     }
     

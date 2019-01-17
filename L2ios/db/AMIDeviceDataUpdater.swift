@@ -57,7 +57,6 @@ import GRDB
         super.init()
         if let fetchedRecord = AMIDBQueries.fetchDeviceWithUUID(uuid.uuidString) {
             record = fetchedRecord
-            record.restoreTransientData()
         }
     }
     
@@ -202,6 +201,5 @@ import GRDB
         record.rssiBuffer.push(x: record.rssi)
         print("\(record.uuid) pushed \(record.rssiBuffer.length)")
         AMIDBQueries.saveDeviceRecord(&record)
-        record.saveTransientData()
     }
 }

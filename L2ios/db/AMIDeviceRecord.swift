@@ -51,7 +51,11 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     //db vars
     var id: Int64? = nil
     var hwtype: HWType = .unknown
-    var uuid: String = ""
+    var uuid: String = "" {
+        didSet {
+            restoreTransientData()
+        }
+    }
     var macaddr: String = ""
     var broadcastedName: String = ""
     var baseName: String = ""
@@ -137,7 +141,7 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
         return device
     }
     
-    func batteryText() -> String {
+    func batteryText() -> String? {
         switch batteryUnit {
         case .volts:
             return String(format:"%.1fV", battery)

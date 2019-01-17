@@ -10,6 +10,8 @@ import GRDB
     public var entity:AMIDeviceRecord? {
         didSet {
             updateConfigureButtonValue()
+            updateRSSILabelValue()
+            updateBattLabelValue()
         }
     }
     
@@ -18,12 +20,14 @@ import GRDB
     private var icon = UIImageView()
     private var statusLabel = UILabel()
     private var deviceNameLabel = UILabel()
+    private var rssiLabel = UILabel()
     private var battLabel = UILabel()
     private var configureButton = UIButton()
     private var currentIndicatorsLabel = UILabel()
     private var timeframeLabel = UILabel()
     private var bleCentral:AMIBLECentral?
     private var observer: TransactionObserver?
+    private var prevRssi:Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,7 @@ import GRDB
         
         // Start observing the database
         observer = try! observation.start(in: AMIDBStarter.sharedInstance.dbQueue!, onChange: { [unowned self] device in
+            device?.restoreTransientData()
             self.entity = device
         })
     }
@@ -57,6 +62,7 @@ import GRDB
         setupIcon()
         setupStatusLabel()
         setupDeviceNameLabel()
+        setupRSSILabel()
         setupBattLabel()
         setupConfigureButton()
         setupTableView()
@@ -110,6 +116,33 @@ import GRDB
         deviceNameLabel.topAnchor.constraint(equalTo: icon.topAnchor, constant: 22.0).isActive = true
     }
     
+    private func setupRSSILabel() {
+        let styleConstants = AMIStyleConstants.sharedInstance
+        rssiLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(rssiLabel)
+        
+        rssiLabel.font = styleConstants.detailViewSmallFont
+        rssiLabel.textColor = styleConstants.dimmedTextColor
+        rssiLabel.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -70.0).isActive = true
+        rssiLabel.bottomAnchor.constraint(equalTo: deviceNameLabel.bottomAnchor, constant: -20.0).isActive = true
+        updateRSSILabelValue()
+        
+    }
+    
+    private func updateRSSILabelValue() {
+        let styleConstants = AMIStyleConstants.sharedInstance
+        if let rssi = entity?.rssi {
+            rssiLabel.attributedText = NSAttributedString.title(withPDFIcon: "ic-rssi.pdf",
+                                                                iconHeight: 18, spaces: 1, text: String(format:"%.0f", rssi),
+                                                                font: styleConstants.detailViewSmallFont,
+                                                                textColor: styleConstants.dimmedTextColor,
+                                                                additionalOffset: -1.0)
+        }
+        else {
+            rssiLabel.attributedText = nil
+        }
+    }
+    
     private func setupBattLabel() {
         let styleConstants = AMIStyleConstants.sharedInstance
         battLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -117,14 +150,23 @@ import GRDB
         
         battLabel.font = styleConstants.detailViewSmallFont
         battLabel.textColor = styleConstants.dimmedTextColor
-        battLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16.0).isActive = true
+        battLabel.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -70.0).isActive = true
         battLabel.bottomAnchor.constraint(equalTo: deviceNameLabel.bottomAnchor, constant: 0.0).isActive = true
-        battLabel.attributedText = NSAttributedString.title(withPDFIcon: "ic-battery.pdf",
-                                                          iconHeight: 18, spaces: 0, text: entity?.batteryText(),
-                                                          font: styleConstants.detailViewSmallFont,
-                                                          textColor: styleConstants.dimmedTextColor,
-                                                          additionalOffset: -1.0)
-        
+        updateBattLabelValue()
+    }
+    
+    private func updateBattLabelValue() {
+        let styleConstants = AMIStyleConstants.sharedInstance
+        if let batteryText = entity?.batteryText() {
+            battLabel.attributedText = NSAttributedString.title(withPDFIcon: "ic-battery.pdf",
+                                                                iconHeight: 18, spaces: 1, text: batteryText,
+                                                                font: styleConstants.detailViewSmallFont,
+                                                                textColor: styleConstants.dimmedTextColor,
+                                                                additionalOffset: -1.0)
+        }
+        else {
+            battLabel.attributedText = nil
+        }
     }
     
     private func setupConfigureButton() {
@@ -164,10 +206,10 @@ import GRDB
         tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(tableView)
         let styleConstants = AMIStyleConstants.sharedInstance
-        tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: styleConstants.detailViewChartsTableYOffset(3) - 10.0).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: styleConstants.detailViewChartsTableYOffset(2) - 10.0).isActive = true
         tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant:-8.0).isActive = true
         tableView.separatorStyle = .none
         self.view.backgroundColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
@@ -180,7 +222,7 @@ import GRDB
         let styleConstants = AMIStyleConstants.sharedInstance
         currentIndicatorsLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(currentIndicatorsLabel)
-        currentIndicatorsLabel.text = "3 Current indicators"
+        currentIndicatorsLabel.text = "2 Current indicators"
         currentIndicatorsLabel.font = styleConstants.detailViewMediumFont
         currentIndicatorsLabel.textColor = styleConstants.brightTextColor
         currentIndicatorsLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16.0).isActive = true
