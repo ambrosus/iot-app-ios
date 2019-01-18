@@ -125,7 +125,7 @@ class AMIDevicesListCell: UITableViewCell {
         let img = UIImage.init(pdfNamed: "ic-devicebrand-generic.pdf", at:iconPic.frame.size)
         iconPic.setImage(img)
         
-        battLabel.text = String(format: "%.1f", entity.battery) + "V"
+        battLabel.text = entity.batteryText()
         rssiLabel.text = String(format: "%.0f", entity.rssi)
         
         titleLabel.text = entity.broadcastedName

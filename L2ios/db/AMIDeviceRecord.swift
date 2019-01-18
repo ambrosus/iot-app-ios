@@ -46,6 +46,12 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
         case percents
     }
     
+    enum AMIDRMeasurementPresence : Int, Codable {
+        case notSupported = 0
+        case notSampled
+        case present
+    }
+    
     public static var databaseTableName = "device"
     
     //db vars
@@ -66,8 +72,11 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     var batteryUnit: HWBatteryUnit = .volts
     var rssi: Double = 0.0
     var temperature: Double = 0.0
+    var temperaturePresence: AMIDRMeasurementPresence = .notSampled
     var pressure: Double = 0.0
+    var pressurePresence: AMIDRMeasurementPresence = .notSampled
     var humidity: Double = 0.0
+    var humidityPresence: AMIDRMeasurementPresence = .notSampled
     var unreachableFlag: Bool = false
     var active: Bool = false
     var signal: Data = Data()
@@ -80,7 +89,9 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     
     fileprivate enum CodingKeys: String, CodingKey, ColumnExpression {
         case id, hwtype, uuid, macaddr, broadcastedName, baseName, userAssignedName,
-            addedTS, lastSeenTS, battery, batteryUnit, rssi, temperature, pressure, humidity, unreachableFlag, active,
+            addedTS, lastSeenTS, battery, batteryUnit, rssi,
+            temperature, temperaturePresence, pressure, pressurePresence, humidity, humidityPresence,
+            unreachableFlag, active,
             signal, signalUnixTS, signalRate
     }
     
@@ -131,7 +142,7 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
         
         device.battery = 3.3
         device.batteryUnit = .volts
-        device.rssi = 3.0
+        device.rssi = -20.0
         device.temperature = 20.0
         device.pressure = 101000.0
         device.humidity = 0.6

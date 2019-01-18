@@ -11,6 +11,12 @@ class AMIDBQueries: NSObject {
         return AMIDBStarter.sharedInstance.dbQueue
     }
     
+    static func allDevices() -> [AMIDeviceRecord]? {
+        return try! dbQueue?.read{ db in
+            try AMIDeviceRecord.fetchAll(db)
+        }
+    }
+    
     static func fetchDeviceWithUUID(_ uuid:String) -> AMIDeviceRecord? {
         let result = try! dbQueue?.read{ db in
             try AMIDeviceRecord.fetchOne(db, "SELECT * FROM device where uuid = ?", arguments:[uuid])

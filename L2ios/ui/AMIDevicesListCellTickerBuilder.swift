@@ -16,40 +16,43 @@ class AMIDevicesListCellTickerBuilder: NSObject {
         let tickerFontSize = tickerFont.pointSize
         var result:[NSAttributedString] = []
         
-        if !rec.temperature.isNaN {
+        if (rec.temperaturePresence != .notSupported) {
             let entry = NSMutableAttributedString.init()
             let att = NSTextAttachment.init()
             att.image = UIImage.init(pdfNamed: "ic-sentortype-temp.pdf", atHeight:lineHeight)
             att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight + 2, uptoX: lineHeight, height: lineHeight)
             let attStr = NSMutableAttributedString.init(attachment: att)
             entry.append(attStr)
-            entry.append(NSAttributedString.init(string: String(format: " %.0f°C", rec.temperature)))
+            let valueString = rec.temperaturePresence == .notSampled ? " --" : String(format: " %.0f°C", rec.temperature)
+            entry.append(NSAttributedString.init(string: valueString))
             entry.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
                                  range: NSRange.init(location: 0, length: entry.length))
             result.append(entry)
         }
         
-        if !rec.pressure.isNaN {
+        if (rec.pressurePresence != .notSupported) {
             let entry = NSMutableAttributedString.init()
             let att = NSTextAttachment.init()
             att.image = UIImage.init(pdfNamed: "ic-sentortype-prsr.pdf", atHeight:lineHeight)
             att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight + 2, uptoX: lineHeight, height: lineHeight)
             let attStr = NSMutableAttributedString.init(attachment: att)
             entry.append(attStr)
-            entry.append(NSAttributedString.init(string: String(format: " %.1fhPa", rec.pressure / 100.0)))
+            let valueString = rec.pressurePresence == .notSampled ? " --" : String(format: " %.0fhPa", rec.pressure / 100.0)
+            entry.append(NSAttributedString.init(string: valueString))
             entry.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
                                 range: NSRange.init(location: 0, length: entry.length))
             result.append(entry)
         }
         
-        if !rec.humidity.isNaN {
+        if (rec.humidityPresence != .notSupported) {
             let entry = NSMutableAttributedString.init()
             let att = NSTextAttachment.init()
             att.image = UIImage.init(pdfNamed: "ic-sentortype-humi.pdf", atHeight:lineHeight)
             att.bounds = CGRect.init(x: 0, y: tickerFontSize - lineHeight + 2, uptoX: lineHeight, height: lineHeight)
             let attStr = NSMutableAttributedString.init(attachment: att)
             entry.append(attStr)
-            entry.append(NSAttributedString.init(string: String(format: " %.1f%%", rec.humidity)))
+            let valueString = rec.humidityPresence == .notSampled ? " --" : String(format: " %.1f%%", rec.humidity)
+            entry.append(NSAttributedString.init(string: valueString))
             entry.addAttributes([.font : styleConstants.masterViewCellTickerFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
                                 range: NSRange.init(location: 0, length: entry.length))
             result.append(entry)
