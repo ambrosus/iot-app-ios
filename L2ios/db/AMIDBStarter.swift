@@ -72,7 +72,7 @@ import GRDB
             }
         }
         
-        //if AMIDBFlags.isSimulator {
+        if AMIDBFlags.isSimulator {
             migrator.registerMigration("m0002_test_populate") { db in
                 for ctr:Int in 0..<10 {
                     var device = AMIDeviceRecord.mockDevice(ctr)
@@ -88,7 +88,7 @@ import GRDB
                     try device.insert(db)
                 }
             }
-        //}
+        }
         
         mockUpdateTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
             AMIDBQueries.allDevices()?.forEach { d in
@@ -102,13 +102,6 @@ import GRDB
                     d.humidity *= Double.random(in: 0.95..<1.05)
                 }
             }
-//            if let devices = AMIDBQueries.allDevices() {
-//                for (dev in devices) {
-//                    if (dev.temperaturePresence == .present) {
-//
-//                    }
-//                }
-//            }
         }
         
         return migrator

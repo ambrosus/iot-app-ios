@@ -199,6 +199,9 @@ import GRDB
         record.lastSeenTS = CACurrentMediaTime()
         record.batteryBuffer.push(x: record.battery)
         record.rssiBuffer.push(x: record.rssi)
+        record.temperatureBuffer.push(x: (record.temperaturePresence == .present) ? record.temperature : Double.nan)
+        record.pressureBuffer.push(x: (record.pressurePresence == .present) ? record.pressure : Double.nan)
+        record.humidityBuffer.push(x: (record.humidityPresence == .present) ? record.humidity : Double.nan)
         AMIDBQueries.saveDeviceRecord(&record)
     }
 }

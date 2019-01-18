@@ -57,7 +57,7 @@ class AMIDeviceSensorChartCell: UITableViewCell {
     
     public func updateWithEntity(_ entity : AMIDeviceRecord, sensorType:AMISensorType) {
         self.sensorLegendView.attributedText = tickerBuilder.briefChartLegend(sensorType: sensorType, lineHeight: sensorLegendView.frame.size.height)
-        self.chartView.assign(entity.batteryBuffer)
+        self.chartView.assign(entity.sensorBuffer(withType: sensorType))
         
         //mockInput?.updateChart(entity.unreachableFlag)
     }

@@ -31,8 +31,7 @@ import GRDB
 }
 
 class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRecord {
-    
-    enum HWType : Int, Codable {
+    public enum HWType : Int, Codable {
         case unknown = 0
         case ambl1 = 1
         case ruuvitag = 2
@@ -84,8 +83,11 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     var signalRate: Double = 1.0
     
     //transient vars
-    @objc var batteryBuffer = AMIRingBuffer(capacity: 2000)
-    @objc var rssiBuffer = AMIRingBuffer(capacity: 2000)
+    @objc var batteryBuffer = AMIRingBuffer(capacity: 3600)
+    @objc var rssiBuffer = AMIRingBuffer(capacity: 3600)
+    @objc var temperatureBuffer = AMIRingBuffer(capacity: 3600)
+    @objc var pressureBuffer = AMIRingBuffer(capacity: 3600)
+    @objc var humidityBuffer = AMIRingBuffer(capacity: 3600)
     
     fileprivate enum CodingKeys: String, CodingKey, ColumnExpression {
         case id, hwtype, uuid, macaddr, broadcastedName, baseName, userAssignedName,
@@ -214,5 +216,35 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
         }
         
         return result
+    }
+    
+    func sensorBuffer(withType sensorType: AMISensorType) -> AMIRingBuffer? {
+        switch sensorType {
+        case .thermometer:
+            if temperaturePresence != .notSupported {
+                return self.temperatureBuffer
+            }
+        case .hygrometer:
+            if humidityPresence != .notSupported {
+                return self.humidityBuffer
+            }
+        case .manometer:
+            if pressurePresence != .notSupported {
+                return self.pressureBuffer
+            }
+            
+        case .batteryVoltage:
+            return self.batteryBuffer
+            
+        case .batteryPercentage:
+            return self.batteryBuffer
+            
+        case .rssi:
+            return self.rssiBuffer
+        default:
+            break
+        }
+        
+        return nil
     }
 }
