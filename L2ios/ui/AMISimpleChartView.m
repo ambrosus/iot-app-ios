@@ -128,9 +128,11 @@
 }
 
 - (void)assignRingBuffer:(AMIRingBuffer *)rbuffer {
-    [self.pBuilder assignRingBuffer:rbuffer rect:self.bounds];
-    [self.pBuilder updateLineLayer:self.lineLayer];
-    [self.pBuilder updateFillLayer:self.fillLayer];
+    if (rbuffer) {
+        [self.pBuilder assignRingBuffer:rbuffer rect:self.bounds];
+        [self.pBuilder updateLineLayer:self.lineLayer];
+        [self.pBuilder updateFillLayer:self.fillLayer];
+    }
 }
 
 @end

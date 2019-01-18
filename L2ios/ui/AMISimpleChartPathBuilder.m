@@ -44,6 +44,8 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
         self.sampleBufferCount = kDefaultSampleBufferCount;
         self.autoScaleY = YES;
         self.yRangeSnap = 1.0;
+        self.yMin = 0.0;
+        self.yMax = 0.0;
     }
     
     return self;
@@ -177,6 +179,7 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
 }
 
 - (void)assignRingBuffer:(AMIRingBuffer *)rbuffer rect:(CGRect)rect {
+    self.pointsCount = (int32_t)rbuffer.capacity;
     int32_t ptLen = self.pointsCount;
     NSAssert(rbuffer.data && ptLen > 1, @"Bad args");
     
@@ -184,19 +187,10 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
     self.sampleBufferCount = (int32_t)rbuffer.capacity;
     self.sampleBufferOffset = (int32_t)rbuffer.offset;
     
-    
-    int32_t sigLenHead = MIN(sigLen, _sampleBufferCount - _sampleBufferOffset);
-    int32_t sigLenTail = sigLen - sigLenHead;
-    
     double *signal_ = (double *)rbuffer.data.bytes;
-    if (sigLenHead > 0) {
-        memcpy(_sampleBuffer + _sampleBufferOffset, signal_, sigLenHead * sizeof(double));
-    }
-    if (sigLenTail > 0) {
-        memcpy(_sampleBuffer, signal_ + sigLenHead, sigLenTail * sizeof(double));
-    }
+    memcpy(_sampleBuffer, signal_, _sampleBufferCount * sizeof(double));
     
-    _sampleBufferOffset = (_sampleBufferOffset + sigLen) % _sampleBufferCount;
+    [self _normalizeFull];
     
     if (_sampleBufferCount > ptLen) {
         [self _updateWithSignalDS:_sampleBuffer times:nil sigLen:_sampleBufferCount sigOffset:_sampleBufferOffset rect:rect];
@@ -326,6 +320,39 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
 
 - (void)_updateWithSignalUS:(double *)signal times:(double *)times sigLen:(int32_t)sigLen sigOffset:(int32_t)sigOffset rect:(CGRect)rect {
     NSAssert(0, @"Implement upsampling!");
+}
+
+- (void)_normalizeFull {
+    if (!_autoScaleY) {
+        return;
+    }
+    
+    int32_t count = self.sampleBufferCount;
+    double min = INFINITY;
+    double max = -INFINITY;
+    for (int32_t i = 0; i < count; i++) {
+        double pt = _sampleBuffer[i];
+        if (pt == pt) {
+            if (pt < min) {
+                min = pt;
+            }
+            if (pt > max) {
+                max = pt;
+            }
+        }
+    }
+    
+    double minSnapped = floor((min - _yRangeSnap*0.5) / _yRangeSnap) * _yRangeSnap;
+    double maxSnapped = ceil((max + _yRangeSnap*0.5) / _yRangeSnap) * _yRangeSnap;
+    double swing = maxSnapped - minSnapped;
+    
+    self.yMin = minSnapped;
+    self.yMax = maxSnapped;
+    
+    for (int32_t i = 0; i < count; i++) {
+        double pt = _sampleBuffer[i];
+        _sampleBuffer[i] = (pt - minSnapped) / swing;
+    }
 }
 
 @end
