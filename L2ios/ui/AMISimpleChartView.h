@@ -30,8 +30,11 @@ typedef NS_ENUM(NSInteger, AMISensorType) {
     AMISensorTypePHMeter,
     AMISensorTypeHallSensor,
     AMISensorTypeWaterDetector,
-    AMISensorTypeLIDAR,
+    AMISensorTypeLidar,
     AMISensorTypeDosimeter,
+    AMISensorTypeBatteryVoltage,
+    AMISensorTypeBatteryPercentage,
+    AMISensorTypeRssi
 };
 
 typedef NS_ENUM(NSInteger, AMIPhysQuantity) {
@@ -49,6 +52,8 @@ typedef NS_ENUM(NSInteger, AMIPhysQuantity) {
     AMIPhysQuantityRelativeHumidity
 };
 
+@class AMIRingBuffer;
+
 @interface AMISimpleChartView : UIView
 
 @property (nonatomic, assign)   CGFloat     lineWidth;
@@ -62,5 +67,6 @@ typedef NS_ENUM(NSInteger, AMIPhysQuantity) {
 
 - (void)assignSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen;
 - (void)appendSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen;
+- (void)assignRingBuffer:(AMIRingBuffer *)rbuffer;
 
 @end

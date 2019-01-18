@@ -46,3 +46,17 @@
 }
 
 @end
+
+@implementation NSMutableData (AMI)
+
+- (void)fillWithDoubleNans {
+    double *dbuf = (double *)[self mutableBytes];
+    NSUInteger blength = [self length];
+    NSUInteger dlength = blength / sizeof(double);
+    double dnan = nan("");
+    for (int i = 0; i < dlength; i++) {
+        dbuf[i] = dnan;
+    }
+}
+
+@end

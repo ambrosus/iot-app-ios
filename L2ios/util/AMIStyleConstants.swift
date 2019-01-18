@@ -165,7 +165,7 @@ class AMIStyleConstants : NSObject {
     }()
     
     @objc public lazy var detailViewMediumFont: UIFont = {
-        return UIFont.systemFont(ofSize: 14.0, weight:.light)
+        return UIFont.systemFont(ofSize: 15.0, weight:.light)
     }()
     
     @objc public lazy var detailViewConfigureButtonGradient: [UIColor] = {
@@ -198,6 +198,12 @@ class AMIStyleConstants : NSObject {
         return 4.0;
     }()
     
+    @objc public lazy var briefChartSensorLegendRect: CGRect = {
+        return CGRect.init(x: 8.0, y: 8.0, width:200, height: 21.0)
+    }()
     
+    @objc public lazy var briefChartSensorLegendFont: UIFont = {
+        return self.detailViewMediumFont
+    }()
 }
 

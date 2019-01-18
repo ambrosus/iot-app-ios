@@ -199,7 +199,6 @@ import GRDB
         record.lastSeenTS = CACurrentMediaTime()
         record.batteryBuffer.push(x: record.battery)
         record.rssiBuffer.push(x: record.rssi)
-        print("\(record.uuid) pushed \(record.rssiBuffer.length)")
         AMIDBQueries.saveDeviceRecord(&record)
     }
 }

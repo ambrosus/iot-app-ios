@@ -19,7 +19,7 @@ import UIKit
     }
     
     static var logSQL: Bool {
-        return true
+        return false
     }
     
     static var maximumReaderCount: Int {

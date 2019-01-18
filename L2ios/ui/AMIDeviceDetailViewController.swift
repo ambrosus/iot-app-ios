@@ -9,9 +9,13 @@ import GRDB
 @objc class AMIDeviceDetailViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     public var entity:AMIDeviceRecord? {
         didSet {
-            updateConfigureButtonValue()
-            updateRSSILabelValue()
-            updateBattLabelValue()
+            if isViewLoaded {
+                updateConfigureButtonValue()
+                updateRSSILabelValue()
+                updateBattLabelValue()
+                updateCurrentIndicatorsLabelValue()
+                updateCharts()
+            }
         }
     }
     
@@ -54,6 +58,7 @@ import GRDB
     
     private func setupOnLoad() {
         setupUI()
+        self.bleCentral = AMIBLECentral.sharedInstance
         //setupMockInput()
     }
     
@@ -68,6 +73,7 @@ import GRDB
         setupTableView()
         setupCurrentIndicatorsLabel()
         setupTimeframeLabel()
+        updateCharts()
     }
     
     private func setupBackButton() {
@@ -205,8 +211,7 @@ import GRDB
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(tableView)
-        let styleConstants = AMIStyleConstants.sharedInstance
-        tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: styleConstants.detailViewChartsTableYOffset(2) - 10.0).isActive = true
+        
         tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant:-8.0).isActive = true
@@ -215,18 +220,40 @@ import GRDB
         tableView.backgroundColor = UIColor.clear
         tableView.register(AMIDeviceSensorChartCell.self, forCellReuseIdentifier: "AMIDeviceSensorChartCell")
         
-        self.bleCentral = AMIBLECentral.sharedInstance
+        updateTableViewHeight()
+    }
+    
+    private func updateTableViewHeight() {
+        let count = entity?.availableSensorsCount() ?? 0
+        if (count > 0) {
+            let styleConstants = AMIStyleConstants.sharedInstance
+            tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: styleConstants.detailViewChartsTableYOffset(count) - 10.0).isActive = true
+            tableView.isHidden = false
+        }
+        else {
+            tableView.isHidden = true
+        }
     }
     
     private func setupCurrentIndicatorsLabel() {
         let styleConstants = AMIStyleConstants.sharedInstance
         currentIndicatorsLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(currentIndicatorsLabel)
-        currentIndicatorsLabel.text = "2 Current indicators"
         currentIndicatorsLabel.font = styleConstants.detailViewMediumFont
         currentIndicatorsLabel.textColor = styleConstants.brightTextColor
         currentIndicatorsLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16.0).isActive = true
         currentIndicatorsLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -12.0).isActive = true
+        updateCurrentIndicatorsLabelValue()
+    }
+    
+    private func updateCurrentIndicatorsLabelValue() {
+        let count = entity?.availableSensorsCount() ?? 0
+        if (count > 0) {
+            currentIndicatorsLabel.text = "\(count) Sensor Indicators"
+        }
+        else {
+            currentIndicatorsLabel.text = nil
+        }
     }
     
     private func setupTimeframeLabel() {
@@ -256,13 +283,24 @@ import GRDB
                 
                 strongSelf.tableView.visibleCells.forEach{ tvc in
                     if let cell = tvc as? AMIDeviceSensorChartCell {
-                        cell.updateWithEntity(entity)
+                        cell.updateWithEntity(entity, sensorType:.batteryVoltage)
                     }
                 }
             }
         }
         
         RunLoop.current.add(t, forMode: .default)
+    }
+    
+    private func updateCharts() {
+        if let entity = entity {
+            let types = entity.availableSensorTypes()
+            for index in 0..<types.count {
+                if let cell = tableView.cellForRow(at: IndexPath(indexes: [0, index])) as? AMIDeviceSensorChartCell {
+                    cell.updateWithEntity(entity, sensorType: types[index])
+                }
+            }
+        }
     }
     
     @objc func onBackBtn(_ sender: UIButton) {
@@ -274,7 +312,7 @@ import GRDB
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return entity?.availableSensorsCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -284,6 +322,12 @@ import GRDB
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AMIDeviceSensorChartCell", for: indexPath)
         cell.selectionStyle = .none
+        
+        if let entity = entity, let cell = cell as? AMIDeviceSensorChartCell {
+            let types = entity.availableSensorTypes()
+            cell.updateWithEntity(entity, sensorType: types[indexPath.row])
+        }
+        
         return cell
     }
 }

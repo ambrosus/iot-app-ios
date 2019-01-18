@@ -48,7 +48,7 @@
 		52BC9EB521C1AA6A007FDF83 /* UIImage+PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EAF21C1AA69007FDF83 /* UIImage+PDF.m */; };
 		52BC9EB621C1AA6A007FDF83 /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EB121C1AA69007FDF83 /* UIView+Image.m */; };
 		52BC9EBA21C1BF6C007FDF83 /* ic-devicebrand-generic.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EB921C1BF6C007FDF83 /* ic-devicebrand-generic.pdf */; };
-		52BC9EBC21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EBB21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift */; };
+		52BC9EBC21C1D38E007FDF83 /* AMITickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EBB21C1D38E007FDF83 /* AMITickerBuilder.swift */; };
 		52BC9EBF21C1D8AF007FDF83 /* NSData+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EBE21C1D8AF007FDF83 /* NSData+AMI.m */; };
 		52BC9EC221C1D97D007FDF83 /* NSString+AMI.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9EC121C1D97D007FDF83 /* NSString+AMI.m */; };
 		52BC9EC421C24D3E007FDF83 /* ic-sensortype-nuke.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EC321C24D3E007FDF83 /* ic-sensortype-nuke.pdf */; };
@@ -56,24 +56,24 @@
 		52BC9EC821C257A8007FDF83 /* ic-battery.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EC721C257A8007FDF83 /* ic-battery.pdf */; };
 		52BC9ECA21C25B0D007FDF83 /* icdev.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EC921C25B0D007FDF83 /* icdev.pdf */; };
 		52BC9ECC21C29222007FDF83 /* ic-rssi.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECB21C29222007FDF83 /* ic-rssi.pdf */; };
-		52BC9EDF21C2A41B007FDF83 /* ic-sentortype-gyro.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECD21C2A419007FDF83 /* ic-sentortype-gyro.pdf */; };
-		52BC9EE021C2A41B007FDF83 /* ic-sentortype-accl.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECE21C2A419007FDF83 /* ic-sentortype-accl.pdf */; };
-		52BC9EE121C2A41B007FDF83 /* ic-sentortype-vibr.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECF21C2A419007FDF83 /* ic-sentortype-vibr.pdf */; };
-		52BC9EE221C2A41B007FDF83 /* ic-sentortype-irtm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED021C2A419007FDF83 /* ic-sentortype-irtm.pdf */; };
-		52BC9EE321C2A41B007FDF83 /* ic-sentortype-prsr.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED121C2A41A007FDF83 /* ic-sentortype-prsr.pdf */; };
-		52BC9EE421C2A41B007FDF83 /* ic-sentortype-gass.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED221C2A41A007FDF83 /* ic-sentortype-gass.pdf */; };
-		52BC9EE521C2A41B007FDF83 /* ic-sentortype-aqua.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED321C2A41A007FDF83 /* ic-sentortype-aqua.pdf */; };
-		52BC9EE621C2A41B007FDF83 /* ic-sentortype-vacu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED421C2A41A007FDF83 /* ic-sentortype-vacu.pdf */; };
-		52BC9EE721C2A41B007FDF83 /* ic-sentortype-dist.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED521C2A41A007FDF83 /* ic-sentortype-dist.pdf */; };
-		52BC9EE821C2A41B007FDF83 /* ic-sentortype-sonn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED621C2A41A007FDF83 /* ic-sentortype-sonn.pdf */; };
-		52BC9EE921C2A41B007FDF83 /* ic-sentortype-hall.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED721C2A41A007FDF83 /* ic-sentortype-hall.pdf */; };
-		52BC9EEA21C2A41B007FDF83 /* ic-sentortype-magn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED821C2A41A007FDF83 /* ic-sentortype-magn.pdf */; };
-		52BC9EEB21C2A41B007FDF83 /* ic-sentortype-phhh.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED921C2A41A007FDF83 /* ic-sentortype-phhh.pdf */; };
-		52BC9EEC21C2A41B007FDF83 /* ic-sentortype-rxfx.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDA21C2A41A007FDF83 /* ic-sentortype-rxfx.pdf */; };
-		52BC9EED21C2A41B007FDF83 /* ic-sentortype-temp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDB21C2A41B007FDF83 /* ic-sentortype-temp.pdf */; };
-		52BC9EEE21C2A41B007FDF83 /* ic-sentortype-ldar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDC21C2A41B007FDF83 /* ic-sentortype-ldar.pdf */; };
-		52BC9EEF21C2A41B007FDF83 /* ic-sentortype-ligh.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDD21C2A41B007FDF83 /* ic-sentortype-ligh.pdf */; };
-		52BC9EF021C2A41B007FDF83 /* ic-sentortype-humi.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */; };
+		52BC9EDF21C2A41B007FDF83 /* ic-sensortype-gyro.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECD21C2A419007FDF83 /* ic-sensortype-gyro.pdf */; };
+		52BC9EE021C2A41B007FDF83 /* ic-sensortype-accl.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECE21C2A419007FDF83 /* ic-sensortype-accl.pdf */; };
+		52BC9EE121C2A41B007FDF83 /* ic-sensortype-vibr.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ECF21C2A419007FDF83 /* ic-sensortype-vibr.pdf */; };
+		52BC9EE221C2A41B007FDF83 /* ic-sensortype-irtm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED021C2A419007FDF83 /* ic-sensortype-irtm.pdf */; };
+		52BC9EE321C2A41B007FDF83 /* ic-sensortype-prsr.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED121C2A41A007FDF83 /* ic-sensortype-prsr.pdf */; };
+		52BC9EE421C2A41B007FDF83 /* ic-sensortype-gass.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED221C2A41A007FDF83 /* ic-sensortype-gass.pdf */; };
+		52BC9EE521C2A41B007FDF83 /* ic-sensortype-aqua.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED321C2A41A007FDF83 /* ic-sensortype-aqua.pdf */; };
+		52BC9EE621C2A41B007FDF83 /* ic-sensortype-vacu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED421C2A41A007FDF83 /* ic-sensortype-vacu.pdf */; };
+		52BC9EE721C2A41B007FDF83 /* ic-sensortype-dist.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED521C2A41A007FDF83 /* ic-sensortype-dist.pdf */; };
+		52BC9EE821C2A41B007FDF83 /* ic-sensortype-sonn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED621C2A41A007FDF83 /* ic-sensortype-sonn.pdf */; };
+		52BC9EE921C2A41B007FDF83 /* ic-sensortype-hall.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED721C2A41A007FDF83 /* ic-sensortype-hall.pdf */; };
+		52BC9EEA21C2A41B007FDF83 /* ic-sensortype-magn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED821C2A41A007FDF83 /* ic-sensortype-magn.pdf */; };
+		52BC9EEB21C2A41B007FDF83 /* ic-sensortype-phhh.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9ED921C2A41A007FDF83 /* ic-sensortype-phhh.pdf */; };
+		52BC9EEC21C2A41B007FDF83 /* ic-sensortype-rxfx.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDA21C2A41A007FDF83 /* ic-sensortype-rxfx.pdf */; };
+		52BC9EED21C2A41B007FDF83 /* ic-sensortype-temp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDB21C2A41B007FDF83 /* ic-sensortype-temp.pdf */; };
+		52BC9EEE21C2A41B007FDF83 /* ic-sensortype-ldar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDC21C2A41B007FDF83 /* ic-sensortype-ldar.pdf */; };
+		52BC9EEF21C2A41B007FDF83 /* ic-sensortype-ligh.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDD21C2A41B007FDF83 /* ic-sensortype-ligh.pdf */; };
+		52BC9EF021C2A41B007FDF83 /* ic-sensortype-humi.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52BC9EDE21C2A41B007FDF83 /* ic-sensortype-humi.pdf */; };
 		52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */; };
 		52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */; };
 		52D1C6D521EB463000AC6521 /* AMIDBFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1C6D421EB463000AC6521 /* AMIDBFlags.swift */; };
@@ -164,7 +164,7 @@
 		52BC9EB021C1AA69007FDF83 /* UIView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Image.h"; sourceTree = "<group>"; };
 		52BC9EB121C1AA69007FDF83 /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
 		52BC9EB921C1BF6C007FDF83 /* ic-devicebrand-generic.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-devicebrand-generic.pdf"; sourceTree = "<group>"; };
-		52BC9EBB21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDevicesListCellTickerBuilder.swift; sourceTree = "<group>"; };
+		52BC9EBB21C1D38E007FDF83 /* AMITickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMITickerBuilder.swift; sourceTree = "<group>"; };
 		52BC9EBD21C1D8AF007FDF83 /* NSData+AMI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+AMI.h"; sourceTree = "<group>"; };
 		52BC9EBE21C1D8AF007FDF83 /* NSData+AMI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+AMI.m"; sourceTree = "<group>"; };
 		52BC9EC021C1D97D007FDF83 /* NSString+AMI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AMI.h"; sourceTree = "<group>"; };
@@ -174,24 +174,24 @@
 		52BC9EC721C257A8007FDF83 /* ic-battery.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-battery.pdf"; sourceTree = "<group>"; };
 		52BC9EC921C25B0D007FDF83 /* icdev.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = icdev.pdf; sourceTree = "<group>"; };
 		52BC9ECB21C29222007FDF83 /* ic-rssi.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-rssi.pdf"; sourceTree = "<group>"; };
-		52BC9ECD21C2A419007FDF83 /* ic-sentortype-gyro.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-gyro.pdf"; sourceTree = "<group>"; };
-		52BC9ECE21C2A419007FDF83 /* ic-sentortype-accl.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-accl.pdf"; sourceTree = "<group>"; };
-		52BC9ECF21C2A419007FDF83 /* ic-sentortype-vibr.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-vibr.pdf"; sourceTree = "<group>"; };
-		52BC9ED021C2A419007FDF83 /* ic-sentortype-irtm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-irtm.pdf"; sourceTree = "<group>"; };
-		52BC9ED121C2A41A007FDF83 /* ic-sentortype-prsr.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-prsr.pdf"; sourceTree = "<group>"; };
-		52BC9ED221C2A41A007FDF83 /* ic-sentortype-gass.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-gass.pdf"; sourceTree = "<group>"; };
-		52BC9ED321C2A41A007FDF83 /* ic-sentortype-aqua.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-aqua.pdf"; sourceTree = "<group>"; };
-		52BC9ED421C2A41A007FDF83 /* ic-sentortype-vacu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-vacu.pdf"; sourceTree = "<group>"; };
-		52BC9ED521C2A41A007FDF83 /* ic-sentortype-dist.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-dist.pdf"; sourceTree = "<group>"; };
-		52BC9ED621C2A41A007FDF83 /* ic-sentortype-sonn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-sonn.pdf"; sourceTree = "<group>"; };
-		52BC9ED721C2A41A007FDF83 /* ic-sentortype-hall.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-hall.pdf"; sourceTree = "<group>"; };
-		52BC9ED821C2A41A007FDF83 /* ic-sentortype-magn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-magn.pdf"; sourceTree = "<group>"; };
-		52BC9ED921C2A41A007FDF83 /* ic-sentortype-phhh.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-phhh.pdf"; sourceTree = "<group>"; };
-		52BC9EDA21C2A41A007FDF83 /* ic-sentortype-rxfx.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-rxfx.pdf"; sourceTree = "<group>"; };
-		52BC9EDB21C2A41B007FDF83 /* ic-sentortype-temp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-temp.pdf"; sourceTree = "<group>"; };
-		52BC9EDC21C2A41B007FDF83 /* ic-sentortype-ldar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-ldar.pdf"; sourceTree = "<group>"; };
-		52BC9EDD21C2A41B007FDF83 /* ic-sentortype-ligh.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-ligh.pdf"; sourceTree = "<group>"; };
-		52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sentortype-humi.pdf"; sourceTree = "<group>"; };
+		52BC9ECD21C2A419007FDF83 /* ic-sensortype-gyro.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-gyro.pdf"; sourceTree = "<group>"; };
+		52BC9ECE21C2A419007FDF83 /* ic-sensortype-accl.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-accl.pdf"; sourceTree = "<group>"; };
+		52BC9ECF21C2A419007FDF83 /* ic-sensortype-vibr.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-vibr.pdf"; sourceTree = "<group>"; };
+		52BC9ED021C2A419007FDF83 /* ic-sensortype-irtm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-irtm.pdf"; sourceTree = "<group>"; };
+		52BC9ED121C2A41A007FDF83 /* ic-sensortype-prsr.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-prsr.pdf"; sourceTree = "<group>"; };
+		52BC9ED221C2A41A007FDF83 /* ic-sensortype-gass.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-gass.pdf"; sourceTree = "<group>"; };
+		52BC9ED321C2A41A007FDF83 /* ic-sensortype-aqua.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-aqua.pdf"; sourceTree = "<group>"; };
+		52BC9ED421C2A41A007FDF83 /* ic-sensortype-vacu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-vacu.pdf"; sourceTree = "<group>"; };
+		52BC9ED521C2A41A007FDF83 /* ic-sensortype-dist.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-dist.pdf"; sourceTree = "<group>"; };
+		52BC9ED621C2A41A007FDF83 /* ic-sensortype-sonn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-sonn.pdf"; sourceTree = "<group>"; };
+		52BC9ED721C2A41A007FDF83 /* ic-sensortype-hall.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-hall.pdf"; sourceTree = "<group>"; };
+		52BC9ED821C2A41A007FDF83 /* ic-sensortype-magn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-magn.pdf"; sourceTree = "<group>"; };
+		52BC9ED921C2A41A007FDF83 /* ic-sensortype-phhh.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-phhh.pdf"; sourceTree = "<group>"; };
+		52BC9EDA21C2A41A007FDF83 /* ic-sensortype-rxfx.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-rxfx.pdf"; sourceTree = "<group>"; };
+		52BC9EDB21C2A41B007FDF83 /* ic-sensortype-temp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-temp.pdf"; sourceTree = "<group>"; };
+		52BC9EDC21C2A41B007FDF83 /* ic-sensortype-ldar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-ldar.pdf"; sourceTree = "<group>"; };
+		52BC9EDD21C2A41B007FDF83 /* ic-sensortype-ligh.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-ligh.pdf"; sourceTree = "<group>"; };
+		52BC9EDE21C2A41B007FDF83 /* ic-sensortype-humi.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ic-sensortype-humi.pdf"; sourceTree = "<group>"; };
 		52BD2CC921BDCF2300085C5C /* devices-info-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-info-icon@2x.png"; sourceTree = "<group>"; };
 		52BD2CCA21BDCF2300085C5C /* devices-tab-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "devices-tab-icon@2x.png"; sourceTree = "<group>"; };
 		52D1C6D421EB463000AC6521 /* AMIDBFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMIDBFlags.swift; sourceTree = "<group>"; };
@@ -313,24 +313,24 @@
 			children = (
 				5228CE6A21DD7C6C00914FF0 /* ic-paired.pdf */,
 				5228CE6121DD56D700914FF0 /* ic-back-arrow-white.pdf */,
-				52BC9ECE21C2A419007FDF83 /* ic-sentortype-accl.pdf */,
-				52BC9ED321C2A41A007FDF83 /* ic-sentortype-aqua.pdf */,
-				52BC9ED521C2A41A007FDF83 /* ic-sentortype-dist.pdf */,
-				52BC9ED221C2A41A007FDF83 /* ic-sentortype-gass.pdf */,
-				52BC9ECD21C2A419007FDF83 /* ic-sentortype-gyro.pdf */,
-				52BC9ED721C2A41A007FDF83 /* ic-sentortype-hall.pdf */,
-				52BC9EDE21C2A41B007FDF83 /* ic-sentortype-humi.pdf */,
-				52BC9ED021C2A419007FDF83 /* ic-sentortype-irtm.pdf */,
-				52BC9EDC21C2A41B007FDF83 /* ic-sentortype-ldar.pdf */,
-				52BC9EDD21C2A41B007FDF83 /* ic-sentortype-ligh.pdf */,
-				52BC9ED821C2A41A007FDF83 /* ic-sentortype-magn.pdf */,
-				52BC9ED921C2A41A007FDF83 /* ic-sentortype-phhh.pdf */,
-				52BC9ED121C2A41A007FDF83 /* ic-sentortype-prsr.pdf */,
-				52BC9EDA21C2A41A007FDF83 /* ic-sentortype-rxfx.pdf */,
-				52BC9ED621C2A41A007FDF83 /* ic-sentortype-sonn.pdf */,
-				52BC9EDB21C2A41B007FDF83 /* ic-sentortype-temp.pdf */,
-				52BC9ED421C2A41A007FDF83 /* ic-sentortype-vacu.pdf */,
-				52BC9ECF21C2A419007FDF83 /* ic-sentortype-vibr.pdf */,
+				52BC9ECE21C2A419007FDF83 /* ic-sensortype-accl.pdf */,
+				52BC9ED321C2A41A007FDF83 /* ic-sensortype-aqua.pdf */,
+				52BC9ED521C2A41A007FDF83 /* ic-sensortype-dist.pdf */,
+				52BC9ED221C2A41A007FDF83 /* ic-sensortype-gass.pdf */,
+				52BC9ECD21C2A419007FDF83 /* ic-sensortype-gyro.pdf */,
+				52BC9ED721C2A41A007FDF83 /* ic-sensortype-hall.pdf */,
+				52BC9EDE21C2A41B007FDF83 /* ic-sensortype-humi.pdf */,
+				52BC9ED021C2A419007FDF83 /* ic-sensortype-irtm.pdf */,
+				52BC9EDC21C2A41B007FDF83 /* ic-sensortype-ldar.pdf */,
+				52BC9EDD21C2A41B007FDF83 /* ic-sensortype-ligh.pdf */,
+				52BC9ED821C2A41A007FDF83 /* ic-sensortype-magn.pdf */,
+				52BC9ED921C2A41A007FDF83 /* ic-sensortype-phhh.pdf */,
+				52BC9ED121C2A41A007FDF83 /* ic-sensortype-prsr.pdf */,
+				52BC9EDA21C2A41A007FDF83 /* ic-sensortype-rxfx.pdf */,
+				52BC9ED621C2A41A007FDF83 /* ic-sensortype-sonn.pdf */,
+				52BC9EDB21C2A41B007FDF83 /* ic-sensortype-temp.pdf */,
+				52BC9ED421C2A41A007FDF83 /* ic-sensortype-vacu.pdf */,
+				52BC9ECF21C2A419007FDF83 /* ic-sensortype-vibr.pdf */,
 				52BC9EC321C24D3E007FDF83 /* ic-sensortype-nuke.pdf */,
 				52BC9ECB21C29222007FDF83 /* ic-rssi.pdf */,
 				52BC9EC921C25B0D007FDF83 /* icdev.pdf */,
@@ -359,7 +359,7 @@
 				522DE23521BDC2D800779AD6 /* AMIMainViewController.m */,
 				5295511321BDC7FD00F75ED2 /* AMIDevicesListViewController.swift */,
 				528459B521C00EE50073842E /* AMIDevicesListCell.swift */,
-				52BC9EBB21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift */,
+				52BC9EBB21C1D38E007FDF83 /* AMITickerBuilder.swift */,
 				5228CE5621DD38A100914FF0 /* AMIDeviceDetailViewController.swift */,
 				5228CE5A21DD3D5D00914FF0 /* AMIDeviceSensorChartCell.swift */,
 				5228CE7221DE175300914FF0 /* AMISimpleChartViewMockInput.swift */,
@@ -567,38 +567,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52BC9EEC21C2A41B007FDF83 /* ic-sentortype-rxfx.pdf in Resources */,
+				52BC9EEC21C2A41B007FDF83 /* ic-sensortype-rxfx.pdf in Resources */,
 				52BC9ECC21C29222007FDF83 /* ic-rssi.pdf in Resources */,
-				52BC9EED21C2A41B007FDF83 /* ic-sentortype-temp.pdf in Resources */,
+				52BC9EED21C2A41B007FDF83 /* ic-sensortype-temp.pdf in Resources */,
 				5228CE6B21DD7C6C00914FF0 /* ic-paired.pdf in Resources */,
-				52BC9EE921C2A41B007FDF83 /* ic-sentortype-hall.pdf in Resources */,
-				52BC9EE821C2A41B007FDF83 /* ic-sentortype-sonn.pdf in Resources */,
+				52BC9EE921C2A41B007FDF83 /* ic-sensortype-hall.pdf in Resources */,
+				52BC9EE821C2A41B007FDF83 /* ic-sensortype-sonn.pdf in Resources */,
 				52BD2CCC21BDCF2300085C5C /* devices-tab-icon@2x.png in Resources */,
-				52BC9EE121C2A41B007FDF83 /* ic-sentortype-vibr.pdf in Resources */,
-				52BC9EE521C2A41B007FDF83 /* ic-sentortype-aqua.pdf in Resources */,
+				52BC9EE121C2A41B007FDF83 /* ic-sensortype-vibr.pdf in Resources */,
+				52BC9EE521C2A41B007FDF83 /* ic-sensortype-aqua.pdf in Resources */,
 				5224233A21BD641100513868 /* amb_full_scr.png in Resources */,
-				52BC9EEF21C2A41B007FDF83 /* ic-sentortype-ligh.pdf in Resources */,
-				52BC9EEA21C2A41B007FDF83 /* ic-sentortype-magn.pdf in Resources */,
+				52BC9EEF21C2A41B007FDF83 /* ic-sensortype-ligh.pdf in Resources */,
+				52BC9EEA21C2A41B007FDF83 /* ic-sensortype-magn.pdf in Resources */,
 				52BC9EC421C24D3E007FDF83 /* ic-sensortype-nuke.pdf in Resources */,
-				52BC9EE621C2A41B007FDF83 /* ic-sentortype-vacu.pdf in Resources */,
+				52BC9EE621C2A41B007FDF83 /* ic-sensortype-vacu.pdf in Resources */,
 				52BC9EC621C24E51007FDF83 /* ic-more.pdf in Resources */,
-				52BC9EEE21C2A41B007FDF83 /* ic-sentortype-ldar.pdf in Resources */,
+				52BC9EEE21C2A41B007FDF83 /* ic-sensortype-ldar.pdf in Resources */,
 				52BC9EC821C257A8007FDF83 /* ic-battery.pdf in Resources */,
 				52BC9EBA21C1BF6C007FDF83 /* ic-devicebrand-generic.pdf in Resources */,
 				52BC9ECA21C25B0D007FDF83 /* icdev.pdf in Resources */,
-				52BC9EE421C2A41B007FDF83 /* ic-sentortype-gass.pdf in Resources */,
-				52BC9EEB21C2A41B007FDF83 /* ic-sentortype-phhh.pdf in Resources */,
+				52BC9EE421C2A41B007FDF83 /* ic-sensortype-gass.pdf in Resources */,
+				52BC9EEB21C2A41B007FDF83 /* ic-sensortype-phhh.pdf in Resources */,
 				5224231621BD4B8B00513868 /* Assets.xcassets in Resources */,
-				52BC9EE321C2A41B007FDF83 /* ic-sentortype-prsr.pdf in Resources */,
+				52BC9EE321C2A41B007FDF83 /* ic-sensortype-prsr.pdf in Resources */,
 				5228CE6221DD56D700914FF0 /* ic-back-arrow-white.pdf in Resources */,
 				5224231721BD4B8B00513868 /* LaunchScreen.storyboard in Resources */,
-				52BC9EDF21C2A41B007FDF83 /* ic-sentortype-gyro.pdf in Resources */,
+				52BC9EDF21C2A41B007FDF83 /* ic-sensortype-gyro.pdf in Resources */,
 				5228CE6021DD412500914FF0 /* AMIInfoViewController.xib in Resources */,
 				52BD2CCB21BDCF2300085C5C /* devices-info-icon@2x.png in Resources */,
-				52BC9EF021C2A41B007FDF83 /* ic-sentortype-humi.pdf in Resources */,
-				52BC9EE221C2A41B007FDF83 /* ic-sentortype-irtm.pdf in Resources */,
-				52BC9EE021C2A41B007FDF83 /* ic-sentortype-accl.pdf in Resources */,
-				52BC9EE721C2A41B007FDF83 /* ic-sentortype-dist.pdf in Resources */,
+				52BC9EF021C2A41B007FDF83 /* ic-sensortype-humi.pdf in Resources */,
+				52BC9EE221C2A41B007FDF83 /* ic-sensortype-irtm.pdf in Resources */,
+				52BC9EE021C2A41B007FDF83 /* ic-sensortype-accl.pdf in Resources */,
+				52BC9EE721C2A41B007FDF83 /* ic-sensortype-dist.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,7 +716,7 @@
 				52BC9EB521C1AA6A007FDF83 /* UIImage+PDF.m in Sources */,
 				52BC9EB221C1AA6A007FDF83 /* NSData+MD5.m in Sources */,
 				52BC9EB621C1AA6A007FDF83 /* UIView+Image.m in Sources */,
-				52BC9EBC21C1D38E007FDF83 /* AMIDevicesListCellTickerBuilder.swift in Sources */,
+				52BC9EBC21C1D38E007FDF83 /* AMITickerBuilder.swift in Sources */,
 				528459B221BFF15F0073842E /* AMIBLECentral.swift in Sources */,
 				522DE23821BDC2D800779AD6 /* AMIMainViewController.m in Sources */,
 				52ABCE7421BFAE9A00B0E1BD /* AMIDBStarter.swift in Sources */,

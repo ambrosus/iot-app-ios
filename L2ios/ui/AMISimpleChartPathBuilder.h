@@ -8,15 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class AMIRingBuffer;
+
 @interface AMISimpleChartPathBuilder : NSObject
 @property (nonatomic, assign)   CGFloat     lineWidth;
 @property (nonatomic, strong)   UIColor     *lineColor;
 @property (nonatomic, strong)   UIColor     *fillColor;
 @property (nonatomic, assign)   int32_t     pointsCount;
 @property (nonatomic, assign)   int32_t     sampleBufferCount;
+@property (nonatomic, assign)   BOOL        autoScaleY;
+@property (nonatomic, assign)   double      yRangeSnap;
 
 - (void)assignSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen rect:(CGRect)rect;
 - (void)appendSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen rect:(CGRect)rect;
+
+- (void)assignRingBuffer:(AMIRingBuffer *)rbuffer rect:(CGRect)rect;
 
 - (void)updateLineLayer:(CAShapeLayer *)lineLayer;
 - (void)updateFillLayer:(CAShapeLayer *)fillLayer;

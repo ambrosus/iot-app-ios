@@ -8,6 +8,7 @@
 
 #import "AMISimpleChartPathBuilder.h"
 #import "UIColor+AMI.h"
+#import "L2ios-Swift.h"
 
 static const CGFloat    kDefaultLineWidth = 1.0;
 static const uint32_t   kDefaultLineColorRGBA = 0x3B81B8FF;
@@ -41,6 +42,8 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
         self.fillColor = [UIColor colorWithRGBA:kDefaultFillColorRGBA];
         self.pointsCount = kDefaultPointsCount;
         self.sampleBufferCount = kDefaultSampleBufferCount;
+        self.autoScaleY = YES;
+        self.yRangeSnap = 1.0;
     }
     
     return self;
@@ -147,17 +150,17 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
     }
 }
 
-- (void)appendSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen rect:(CGRect)rect {
+- (void)appendSignal:(double *)signal_ times:(double *)times sigLen:(int32_t)sigLen rect:(CGRect)rect {
     int32_t ptLen = self.pointsCount;
     NSAssert(sigLen > 0 && ptLen > 1, @"Bad args 1");
     NSAssert(sigLen <= self.sampleBufferCount, @"Bad args 2");
     int32_t sigLenHead = MIN(sigLen, _sampleBufferCount - _sampleBufferOffset);
     int32_t sigLenTail = sigLen - sigLenHead;
     if (sigLenHead > 0) {
-        memcpy(_sampleBuffer + _sampleBufferOffset, signal, sigLenHead * sizeof(double));
+        memcpy(_sampleBuffer + _sampleBufferOffset, signal_, sigLenHead * sizeof(double));
     }
     if (sigLenTail > 0) {
-        memcpy(_sampleBuffer, signal + sigLenHead, sigLenTail * sizeof(double));
+        memcpy(_sampleBuffer, signal_ + sigLenHead, sigLenTail * sizeof(double));
     }
     
     _sampleBufferOffset = (_sampleBufferOffset + sigLen) % _sampleBufferCount;
@@ -170,6 +173,39 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
     }
     else {
         [self _updateWithSignalDirect:_sampleBuffer times:times sigLen:_sampleBufferCount sigOffset:_sampleBufferOffset rect:rect];
+    }
+}
+
+- (void)assignRingBuffer:(AMIRingBuffer *)rbuffer rect:(CGRect)rect {
+    int32_t ptLen = self.pointsCount;
+    NSAssert(rbuffer.data && ptLen > 1, @"Bad args");
+    
+    int32_t sigLen = (int32_t)rbuffer.length;
+    self.sampleBufferCount = (int32_t)rbuffer.capacity;
+    self.sampleBufferOffset = (int32_t)rbuffer.offset;
+    
+    
+    int32_t sigLenHead = MIN(sigLen, _sampleBufferCount - _sampleBufferOffset);
+    int32_t sigLenTail = sigLen - sigLenHead;
+    
+    double *signal_ = (double *)rbuffer.data.bytes;
+    if (sigLenHead > 0) {
+        memcpy(_sampleBuffer + _sampleBufferOffset, signal_, sigLenHead * sizeof(double));
+    }
+    if (sigLenTail > 0) {
+        memcpy(_sampleBuffer, signal_ + sigLenHead, sigLenTail * sizeof(double));
+    }
+    
+    _sampleBufferOffset = (_sampleBufferOffset + sigLen) % _sampleBufferCount;
+    
+    if (_sampleBufferCount > ptLen) {
+        [self _updateWithSignalDS:_sampleBuffer times:nil sigLen:_sampleBufferCount sigOffset:_sampleBufferOffset rect:rect];
+    }
+    else if (_sampleBufferCount < ptLen) {
+        [self _updateWithSignalUS:_sampleBuffer times:nil sigLen:_sampleBufferCount sigOffset:_sampleBufferOffset rect:rect];
+    }
+    else {
+        [self _updateWithSignalDirect:_sampleBuffer times:nil sigLen:_sampleBufferCount sigOffset:_sampleBufferOffset rect:rect];
     }
 }
 

@@ -5,7 +5,7 @@
 
 import GRDB
 
-class AMIRingBuffer : NSObject {
+@objc class AMIRingBuffer : NSObject {
     @objc let capacity:Int
     @objc let data:NSMutableData
     @objc var offset:Int
@@ -14,6 +14,7 @@ class AMIRingBuffer : NSObject {
     init(capacity:Int) {
         self.capacity = capacity
         self.data = NSMutableData(length: capacity * MemoryLayout<Double>.size)!
+        self.data.fillWithDoubleNans()
         self.offset = 0
         self.length = 0
         super.init()
@@ -27,7 +28,6 @@ class AMIRingBuffer : NSObject {
             offset = (offset + 1) % capacity
         }
     }
-    
 }
 
 class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRecord {
@@ -46,7 +46,7 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
         case percents
     }
     
-    enum AMIDRMeasurementPresence : Int, Codable {
+    enum AMIDRSensorPresence : Int, Codable {
         case notSupported = 0
         case notSampled
         case present
@@ -72,11 +72,11 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     var batteryUnit: HWBatteryUnit = .volts
     var rssi: Double = 0.0
     var temperature: Double = 0.0
-    var temperaturePresence: AMIDRMeasurementPresence = .notSampled
+    var temperaturePresence: AMIDRSensorPresence = .notSampled
     var pressure: Double = 0.0
-    var pressurePresence: AMIDRMeasurementPresence = .notSampled
+    var pressurePresence: AMIDRSensorPresence = .notSampled
     var humidity: Double = 0.0
-    var humidityPresence: AMIDRMeasurementPresence = .notSampled
+    var humidityPresence: AMIDRSensorPresence = .notSampled
     var unreachableFlag: Bool = false
     var active: Bool = false
     var signal: Data = Data()
@@ -84,8 +84,8 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     var signalRate: Double = 1.0
     
     //transient vars
-    @objc var batteryBuffer = AMIRingBuffer(capacity: 1000)
-    @objc var rssiBuffer = AMIRingBuffer(capacity: 1000)
+    @objc var batteryBuffer = AMIRingBuffer(capacity: 2000)
+    @objc var rssiBuffer = AMIRingBuffer(capacity: 2000)
     
     fileprivate enum CodingKeys: String, CodingKey, ColumnExpression {
         case id, hwtype, uuid, macaddr, broadcastedName, baseName, userAssignedName,
@@ -116,7 +116,7 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     }
     
     static func mockDevice(_ number:Int) -> AMIDeviceRecord {
-        let deviceName = "MockTag \(number / 2)"
+        let deviceName = "MockTag \(number + 1)"
         let device = AMIDeviceRecord()
         device.hwtype = .ambSimulated
         device.uuid = NSUUID().uuidString
@@ -173,5 +173,46 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
             batteryBuffer = buffers[0]
             rssiBuffer = buffers[1]
         }
+    }
+    
+    private func _supportedSensorPresences(presences:[AMIDRSensorPresence]) -> Int {
+        var result:Int = 0
+        for p in presences {
+            if (p != .notSupported) {
+                result += 1
+            }
+        }
+        
+        return result
+    }
+    
+    func availableSensorsCount() -> Int {
+        if (hwtype == .ambl1) {
+            return 2
+        }
+        else {
+            return _supportedSensorPresences(presences: [temperaturePresence, pressurePresence, humidityPresence]) + 2
+        }
+    }
+    
+    func availableSensorTypes() -> [AMISensorType] {
+        var result:[AMISensorType] = []
+        if (hwtype == .ambl1) {
+            result = [.batteryPercentage, .rssi]
+        }
+        else {
+            result = [.batteryVoltage, .rssi]
+            if temperaturePresence != .notSupported {
+                result.append(.thermometer)
+            }
+            if pressurePresence != .notSupported {
+                result.append(.manometer)
+            }
+            if humidityPresence != .notSupported {
+                result.append(.hygrometer)
+            }
+        }
+        
+        return result
     }
 }

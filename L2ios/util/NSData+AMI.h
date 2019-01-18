@@ -12,3 +12,9 @@
 - (nonnull NSString *)formattedHexWithLineSize:(NSUInteger)lineSize;
 
 @end
+
+@interface NSMutableData (AMI)
+
+- (void)fillWithDoubleNans;
+
+@end

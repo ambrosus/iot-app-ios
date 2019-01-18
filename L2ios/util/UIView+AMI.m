@@ -20,11 +20,11 @@
     
     CGGradientRef myGradient   = CGGradientCreateWithColorComponents(colorSpace, colorList, locationList, 2);
     
-    CGContextRef bitmapContext = CGBitmapContextCreate(NULL, 1, frame.size.height, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast);
-    CGContextDrawLinearGradient(bitmapContext, myGradient, CGPointMake(0.0f, 0.0f), CGPointMake(0, frame.size.height), 0);
+    CGContextRef bitmapContext = CGBitmapContextCreate(NULL, 1, frame.size.height * 2, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast);
+    CGContextDrawLinearGradient(bitmapContext, myGradient, CGPointMake(0.0f, 0.0f), CGPointMake(0, frame.size.height * 2), 0);
     
     CGImageRef cgImage = CGBitmapContextCreateImage(bitmapContext);
-    UIImage *uiImage = [UIImage imageWithCGImage:cgImage];
+    UIImage *uiImage = [UIImage imageWithCGImage:cgImage scale:2 orientation:UIImageOrientationUp];
     CGImageRelease(cgImage);
     CGContextRelease(bitmapContext);
     CGColorSpaceRelease(colorSpace);

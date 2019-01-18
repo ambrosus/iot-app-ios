@@ -8,6 +8,7 @@
 
 #import "AMISimpleChartView.h"
 #import "AMISimpleChartPathBuilder.h"
+#import "L2ios-Swift.h"
 
 @interface AMISimpleChartView ()
 @property (nonatomic, strong) AMISimpleChartPathBuilder *pBuilder;
@@ -124,6 +125,12 @@
 - (void)layoutSublayersOfLayer:(CALayer *)layer {
     self.lineLayer.frame = layer.bounds;
     self.fillLayer.frame = layer.bounds;
+}
+
+- (void)assignRingBuffer:(AMIRingBuffer *)rbuffer {
+    [self.pBuilder assignRingBuffer:rbuffer rect:self.bounds];
+    [self.pBuilder updateLineLayer:self.lineLayer];
+    [self.pBuilder updateFillLayer:self.fillLayer];
 }
 
 @end

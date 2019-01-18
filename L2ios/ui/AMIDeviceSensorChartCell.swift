@@ -6,8 +6,11 @@
 import UIKit
 
 class AMIDeviceSensorChartCell: UITableViewCell {
+    let tickerBuilder = AMISensorTickerBuilder()
     var chartView = AMISimpleChartView()
-    var mockInput : AMISimpleChartViewMockInput? = nil
+    var sensorLegendView = UILabel()
+    
+    //var mockInput : AMISimpleChartViewMockInput? = nil
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -36,7 +39,8 @@ class AMIDeviceSensorChartCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
         chartView.backgroundColor = styleConstants.detailViewCellBackgroundColor
         contentView.addSubview(chartView)
-        mockInput = AMISimpleChartViewMockInput.init(chartView, ptCount:120)
+        contentView.addSubview(sensorLegendView)
+        //mockInput = AMISimpleChartViewMockInput.init(chartView, ptCount:120)
     }
     
     override func layoutSubviews() {
@@ -47,11 +51,15 @@ class AMIDeviceSensorChartCell: UITableViewCell {
     func performCustomLayout() {
         let styleConstants = AMIStyleConstants.sharedInstance
         self.contentView.frame = self.bounds.inset(by: styleConstants.masterViewCellContentInsets)
-        self.chartView.frame = self.contentView.bounds
+        chartView.frame = self.contentView.bounds
+        sensorLegendView.frame = styleConstants.briefChartSensorLegendRect
     }
     
-    public func updateWithEntity(_ entity : AMIDeviceRecord) {
-        mockInput?.updateChart(entity.unreachableFlag)
+    public func updateWithEntity(_ entity : AMIDeviceRecord, sensorType:AMISensorType) {
+        self.sensorLegendView.attributedText = tickerBuilder.briefChartLegend(sensorType: sensorType, lineHeight: sensorLegendView.frame.size.height)
+        self.chartView.assign(entity.batteryBuffer)
+        
+        //mockInput?.updateChart(entity.unreachableFlag)
     }
 
 }

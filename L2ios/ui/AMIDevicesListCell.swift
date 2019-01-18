@@ -16,7 +16,7 @@ class AMIDevicesListCell: UITableViewCell {
     var subtitleLabel = UILabel()
     var tickersLabels:[UILabel] = [UILabel(), UILabel(), UILabel()]
     
-    let tickerBuilder = AMIDevicesListCellTickerBuilder()
+    let tickerBuilder = AMISensorTickerBuilder()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -132,8 +132,13 @@ class AMIDevicesListCell: UITableViewCell {
         subtitleLabel.text = "UUID: " + entity.uuid
         
         let tickersAttrStrings = tickerBuilder.tickers(with: entity, lineHeight: styleConstants.masterViewCellTickersRect.size.height, maxEntries: tickersLabels.count)
-        for index in 0..<min(tickersAttrStrings.count, tickersLabels.count) {
-            tickersLabels[index].attributedText = tickersAttrStrings[index]
+        for index in 0..<tickersLabels.count {
+            if (index < tickersAttrStrings.count) {
+                tickersLabels[index].attributedText = tickersAttrStrings[index]
+            }
+            else {
+                tickersLabels[index].attributedText = nil
+            }
         }
     }
 }

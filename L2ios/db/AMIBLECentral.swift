@@ -54,6 +54,7 @@ import GRDB
 
                 central.cancelPeripheralConnection(peripheral)
                 let updater = AMIDeviceDataUpdater.init(uuid: peripheral.identifier)
+                updater.record.hwtype = .ambl1
                 updater.peripheral = peripheral
                 updater.state = .st_discovered
                 updater.record.uuid = peripheral.identifier.uuidString
