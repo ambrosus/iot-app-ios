@@ -52,4 +52,15 @@ static uint16_t construct_uint16_be(uint8_t x, uint8_t y) {
     return self;
 }
 
++ (BOOL)dataFrameIsRuuviCompatible:(NSData *)dataFrame {
+    if (dataFrame.length >= 16) {
+        uint8_t *ubytes = (uint8_t *)dataFrame.bytes;
+        if (construct_uint16_be(ubytes[0], ubytes[1]) == kRuuviManufacturerCode) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 @end

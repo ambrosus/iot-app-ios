@@ -24,6 +24,7 @@ typedef struct {
 @property (nonatomic, readonly, assign) double voltage;
 @property (nonatomic, readonly, assign) double rssi;
 
++ (BOOL)dataFrameIsRuuviCompatible:(NSData *)dataFrame;
 - (nullable instancetype)initWithDataFrame:(NSData *)dataFrame;
 
 @end

@@ -192,6 +192,8 @@ static const int32_t    kDefaultSampleBufferCount = 3600;
     
     [self _normalizeFull];
     
+    _yLast = _sampleBuffer[_sampleBufferOffset - 1];
+    
     if (_sampleBufferCount > ptLen) {
         [self _updateWithSignalDS:_sampleBuffer times:nil sigLen:_sampleBufferCount sigOffset:_sampleBufferOffset rect:rect];
     }

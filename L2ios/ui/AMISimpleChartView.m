@@ -135,4 +135,16 @@
     }
 }
 
+- (double)minValue {
+    return [self.pBuilder yMin];
+}
+
+- (double)maxValue {
+    return [self.pBuilder yMax];
+}
+
+- (double)currentValue {
+    return [self.pBuilder yLast];
+}
+
 @end

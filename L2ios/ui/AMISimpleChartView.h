@@ -69,4 +69,8 @@ typedef NS_ENUM(NSInteger, AMIPhysQuantity) {
 - (void)appendSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen;
 - (void)assignRingBuffer:(nullable AMIRingBuffer *)rbuffer;
 
+- (double)minValue;
+- (double)maxValue;
+- (double)currentValue;
+
 @end

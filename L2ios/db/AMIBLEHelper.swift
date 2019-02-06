@@ -17,9 +17,25 @@ class AMIBLEHelper {
         return false
     }
     
+    static func isPeripheralRuuviCompatible(_ peripheral:CBPeripheral, advertisementData: [String : Any]) -> Bool {
+        if let name = peripheral.name, let dataFrame = Data.init(base64Encoded: name) {
+            return AMIRuuviFrame.dataFrameIsRuuviCompatible(dataFrame)
+        }
+        
+        if let dataFrame = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
+            return AMIRuuviFrame.dataFrameIsRuuviCompatible(dataFrame)
+        }
+        
+        return false
+    }
+    
     static func ruuviFrameFromADVData(ofPeripheral peripheral:CBPeripheral, advertisementData: [String : Any]) -> AMIRuuviFrame? {
-        if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
-            return AMIRuuviFrame.init(dataFrame: manufacturerData)
+        if let name = peripheral.name, let dataFrame = Data.init(base64Encoded: name) {
+                return AMIRuuviFrame.init(dataFrame: dataFrame)
+        }
+        
+        if let dataFrame = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
+            return AMIRuuviFrame.init(dataFrame: dataFrame)
         }
         
         return nil

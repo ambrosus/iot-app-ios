@@ -20,6 +20,7 @@
 @property (nonatomic, assign)   double      yRangeSnap;
 @property (nonatomic, assign)   double      yMin;
 @property (nonatomic, assign)   double      yMax;
+@property (nonatomic, assign)   double      yLast;
 
 - (void)assignSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen rect:(CGRect)rect;
 - (void)appendSignal:(double *)signal times:(double *)times sigLen:(int32_t)sigLen rect:(CGRect)rect;

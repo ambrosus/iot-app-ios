@@ -166,7 +166,7 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
     }
     
     func saveTransientData() {
-        let buffers = [batteryBuffer, rssiBuffer]
+        let buffers = [batteryBuffer, rssiBuffer, temperatureBuffer, pressureBuffer, humidityBuffer]
         AMITransientBufStore.map[uuid] = buffers
     }
     
@@ -174,6 +174,9 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
         if let buffers = AMITransientBufStore.map[uuid] {
             batteryBuffer = buffers[0]
             rssiBuffer = buffers[1]
+            temperatureBuffer = buffers[2]
+            pressureBuffer = buffers[3]
+            humidityBuffer = buffers[4]
         }
     }
     
@@ -246,5 +249,24 @@ class AMIDeviceRecord : NSObject, Codable, FetchableRecord, MutablePersistableRe
         }
         
         return nil
+    }
+    
+    func sensorValue(withType sensorType: AMISensorType) -> Double? {
+        switch sensorType {
+        case .thermometer:
+            return temperature
+        case .hygrometer:
+            return humidity
+        case .manometer:
+            return pressure
+        case .batteryVoltage:
+            return battery
+        case .batteryPercentage:
+            return battery
+        case .rssi:
+            return rssi
+        default:
+            return nil
+        }
     }
 }

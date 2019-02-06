@@ -18,7 +18,7 @@ import GRDB
     private var frController: FetchedRecordsController<AMIDeviceRecord>!
     private var countObserver: TransactionObserver?
     
-    private var ordering: Ordering = .byTSAdded {
+    private var ordering: Ordering = .byName {
         didSet {
             try! frController.setRequest(request)
         }
@@ -141,6 +141,7 @@ extension AMIDevicesListViewController {
         if let dcell: AMIDevicesListCell = cell as? AMIDevicesListCell {
             let device = frController.record(at: indexPath)
             dcell.updateWithEntity(device)
+            print("cell configured \(indexPath): \(device.broadcastedName)")
         }
     }
     

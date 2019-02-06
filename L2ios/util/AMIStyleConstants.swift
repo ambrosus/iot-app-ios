@@ -201,9 +201,26 @@ class AMIStyleConstants : NSObject {
     @objc public lazy var briefChartSensorLegendRect: CGRect = {
         return CGRect.init(x: 8.0, y: 8.0, width:200, height: 21.0)
     }()
+
+    @objc public lazy var briefChartSensorCurrentValueRect: CGRect = {
+        return CGRect.init(x: UIScreen.main.bounds.size.width - 140, y: 30.0, width:100, height: 21.0)
+        
+    }()
+    
+    @objc public lazy var briefChartSensorMinValueRect: CGRect = {
+        return CGRect.init(x: UIScreen.main.bounds.size.width - 140, y: 60.0, width:100, height: 21.0)
+    }()
+    
+    @objc public lazy var briefChartSensorMaxValueRect: CGRect = {
+        return CGRect.init(x: UIScreen.main.bounds.size.width - 140, y: 0.0, width:100, height: 21.0)
+    }()
     
     @objc public lazy var briefChartSensorLegendFont: UIFont = {
         return self.detailViewMediumFont
+    }()
+    
+    @objc public lazy var briefChartSensorValueFont: UIFont = {
+        return self.detailViewSmallFont
     }()
 }
 

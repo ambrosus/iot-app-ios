@@ -108,5 +108,35 @@ class AMISensorTickerBuilder: NSObject {
         
         return result
     }
+    
+    public func briefChartValueText(sensorType:AMISensorType, lineHeight:CGFloat, value:Double) -> NSAttributedString {
+        let styleConstants = AMIStyleConstants.sharedInstance
+        let valueFont = styleConstants.briefChartSensorValueFont
+        var valueText:String? = nil
+        
+        switch sensorType {
+        case .thermometer:
+            valueText = String(format: " %.0f°C", value)
+        case .hygrometer:
+            valueText = String(format: " %.1f%%", value)
+        case .manometer:
+            valueText = String(format: " %.0fhPa", value / 100.0)
+        case .batteryVoltage:
+            valueText = String(format: " %.1fV", value)
+        case .batteryPercentage:
+            valueText = String(format: " %.0f%%", value)
+        case .rssi:
+            valueText = String(format: " %.0f", value)
+        default:
+            valueText = ""
+            break
+        }
+        
+        let result = NSMutableAttributedString(string: valueText!)
+        result.addAttributes([.font : valueFont, .foregroundColor : styleConstants.dimmedTextColor, .baselineOffset: 0],
+                             range: NSRange.init(location: 0, length: result.length))
+        
+        return result
+    }
 
 }

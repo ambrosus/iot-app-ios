@@ -8,9 +8,10 @@ import UIKit
 class AMIDeviceSensorChartCell: UITableViewCell {
     let tickerBuilder = AMISensorTickerBuilder()
     var chartView = AMISimpleChartView()
-    var sensorLegendView = UILabel()
-    
-    //var mockInput : AMISimpleChartViewMockInput? = nil
+    var sensorLegendLabel = UILabel()
+    var sensorCurrentValueLabel = UILabel()
+    var sensorMinValueLabel = UILabel()
+    var sensorMaxValueLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -39,8 +40,13 @@ class AMIDeviceSensorChartCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
         chartView.backgroundColor = styleConstants.detailViewCellBackgroundColor
         contentView.addSubview(chartView)
-        contentView.addSubview(sensorLegendView)
-        //mockInput = AMISimpleChartViewMockInput.init(chartView, ptCount:120)
+        contentView.addSubview(sensorLegendLabel)
+        sensorCurrentValueLabel.textAlignment = .right
+        sensorMinValueLabel.textAlignment = .right
+        sensorMaxValueLabel.textAlignment = .right
+        contentView.addSubview(sensorCurrentValueLabel)
+        contentView.addSubview(sensorMinValueLabel)
+        contentView.addSubview(sensorMaxValueLabel)
     }
     
     override func layoutSubviews() {
@@ -52,14 +58,35 @@ class AMIDeviceSensorChartCell: UITableViewCell {
         let styleConstants = AMIStyleConstants.sharedInstance
         self.contentView.frame = self.bounds.inset(by: styleConstants.masterViewCellContentInsets)
         chartView.frame = self.contentView.bounds
-        sensorLegendView.frame = styleConstants.briefChartSensorLegendRect
+        sensorLegendLabel.frame = styleConstants.briefChartSensorLegendRect
+        sensorCurrentValueLabel.frame = styleConstants.briefChartSensorCurrentValueRect
+        sensorMinValueLabel.frame = styleConstants.briefChartSensorMinValueRect
+        sensorMaxValueLabel.frame = styleConstants.briefChartSensorMaxValueRect
     }
     
     public func updateWithEntity(_ entity : AMIDeviceRecord, sensorType:AMISensorType) {
-        self.sensorLegendView.attributedText = tickerBuilder.briefChartLegend(sensorType: sensorType, lineHeight: sensorLegendView.frame.size.height)
-        self.chartView.assign(entity.sensorBuffer(withType: sensorType))
+        self.sensorLegendLabel.attributedText = tickerBuilder.briefChartLegend(sensorType: sensorType, lineHeight: sensorLegendLabel.frame.size.height)
         
-        //mockInput?.updateChart(entity.unreachableFlag)
+        if let currentValue = entity.sensorValue(withType: sensorType) {
+            self.sensorCurrentValueLabel.attributedText = tickerBuilder.briefChartValueText(sensorType: sensorType,
+                                                                                            lineHeight: sensorCurrentValueLabel.frame.size.height,
+                                                                                            value: currentValue)
+            
+            self.sensorMinValueLabel.attributedText = tickerBuilder.briefChartValueText(sensorType: sensorType,
+                                                                                        lineHeight: sensorCurrentValueLabel.frame.size.height,
+                                                                                        value: chartView.minValue())
+            
+            self.sensorMaxValueLabel.attributedText = tickerBuilder.briefChartValueText(sensorType: sensorType,
+                                                                                        lineHeight: sensorCurrentValueLabel.frame.size.height,
+                                                                                        value: chartView.maxValue())
+        }
+        else {
+            self.sensorCurrentValueLabel.attributedText = nil
+            self.sensorMinValueLabel.attributedText = nil
+            self.sensorMaxValueLabel.attributedText = nil
+        }
+        
+        self.chartView.assign(entity.sensorBuffer(withType: sensorType))
     }
 
 }
